@@ -89,10 +89,6 @@ ActiveRecord::Schema.define(version: 2020_03_02_123216) do
   end
 
   add_foreign_key "itineraries", "users"
-  add_foreign_key "itinerary_locations", "itineraries"
-  add_foreign_key "itinerary_locations", "locations"
-  add_foreign_key "itinerary_tags", "itineraries"
-  add_foreign_key "itinerary_tags", "tags"
   add_foreign_key "reviews", "itineraries"
   add_foreign_key "reviews", "users"
 end
