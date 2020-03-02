@@ -1,0 +1,51 @@
+class ItinerariesController < ApplicationController
+  before_action :find_itinerary, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @itineraries = policy_scope(Itinerary)
+  end
+
+  def show; end
+
+  def new
+    @itinerary = Itinerary.new
+    authorize @itinerary
+  end
+
+  def create
+    @itinerary = Itinerary.new(itinerary_params)
+    authorize @itinerary
+    @itinerary.user = current_user
+
+    if @itinerary.save
+      redirect_to @itinerary
+    else
+      render :new
+    end
+  end
+
+  def edit; end
+
+  def update
+    @itinerary.update(itinerary_params)
+
+    redirect_to @itinerary
+  end
+
+  def destroy
+    @itinerary.destroy
+
+    redirect_to itineraries_path
+  end
+
+  private
+
+  def itinerary_params
+    params.require(:itinerary).permit(:description)
+  end
+
+  def find_itinerary
+    @itinerary = Itinerary.find(params[:id])
+    authorize @itinerary
+  end
+end

@@ -1,0 +1,6 @@
+<%= simple_form_for itinerary do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.association :locations, %>
+  <%= f.button :submit, 'Create 👀', class: 'btn btn-outline-primary' %>
+<% end %>

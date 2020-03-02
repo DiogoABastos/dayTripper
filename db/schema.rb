@@ -16,8 +16,9 @@ ActiveRecord::Schema.define(version: 2020_03_02_123216) do
   enable_extension "plpgsql"
 
   create_table "itineraries", force: :cascade do |t|
+    t.string "name"
     t.text "description"
-    t.datetime "duration"
+    t.integer "duration"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,8 +47,8 @@ ActiveRecord::Schema.define(version: 2020_03_02_123216) do
     t.string "name"
     t.string "address"
     t.text "description"
-    t.string "type"
-    t.datetime "duration"
+    t.string "category"
+    t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,6 +71,12 @@ ActiveRecord::Schema.define(version: 2020_03_02_123216) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.string "gender"
+    t.string "interests"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

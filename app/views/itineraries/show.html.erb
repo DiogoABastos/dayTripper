@@ -1,0 +1,17 @@
+<h1>Show page</h1>
+
+<%= @itinerary.name %>
+<hr>
+<ol>
+  <% @itinerary.locations.each do |location| %>
+    <li><%= link_to location.name, itinerary_location_path(location) %> (<%= duration(location.duration) %>)</li>
+    <br>
+  <% end %>
+</ol>
+
+<%= link_to '🔙', itineraries_path %>
+
+<% if policy(@itinerary).destroy? %>
+  <%= link_to '🚮', @itinerary, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
