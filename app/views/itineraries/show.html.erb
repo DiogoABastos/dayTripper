@@ -4,7 +4,11 @@
  <%= link_to '➕ Add locations', new_itinerary_location_path(@itinerary) %>
 <% end %>
 
-<h2><%= @itinerary.name %></h2>
+<h2><%= @itinerary.name %>
+<% if policy(@itinerary).destroy? %>
+  (<%= link_to '✎', edit_itinerary_path(@itinerary) %>)
+<% end %>
+</h2>
 <hr>
 <ol>
   <% @itinerary.locations.each do |location| %>
