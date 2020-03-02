@@ -4,7 +4,7 @@
 <hr>
 <ol>
   <% @itinerary.locations.each do |location| %>
-    <li><%= link_to location.name, itinerary_location_path(location) %> (<%= duration(location.duration) %>)</li>
+    <li><%= link_to location.name, itinerary_location_path(@itinerary, location) %> (<%= duration(location.duration) %>)</li>
     <br>
   <% end %>
 </ol>
