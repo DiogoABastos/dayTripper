@@ -15,6 +15,7 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(itinerary_params)
     authorize @itinerary
+    @itinerary.duration = 0
     @itinerary.user = current_user
 
     if @itinerary.save
@@ -41,7 +42,7 @@ class ItinerariesController < ApplicationController
   private
 
   def itinerary_params
-    params.require(:itinerary).permit(:description)
+    params.require(:itinerary).permit(:name, :description)
   end
 
   def find_itinerary

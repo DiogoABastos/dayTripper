@@ -1,6 +1,10 @@
 <h1>Show page</h1>
 
-<%= @itinerary.name %>
+<% if policy(Location).create? %>
+ <%= link_to '➕ Add locations', new_itinerary_location_path(@itinerary) %>
+<% end %>
+
+<h2><%= @itinerary.name %></h2>
 <hr>
 <ol>
   <% @itinerary.locations.each do |location| %>

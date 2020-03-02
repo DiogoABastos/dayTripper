@@ -1,5 +1,7 @@
 <h1>All</h1>
-<%= link_to 'New Itinerary', new_itinerary_path  %>
+<% if policy(Itinerary).create? %>
+  <%= link_to 'New Itinerary', new_itinerary_path  %>
+<% end %>
 <% @itineraries.each do |itinerary| %>
   <h2><%= itinerary.name %></h2>
   <p><%= duration(itinerary.duration) %></p>

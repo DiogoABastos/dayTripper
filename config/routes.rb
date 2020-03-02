@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 
   resources :itineraries do
-    resources :locations, only: [:show]
+    resources :locations, only: [:show, :new, :create]
   end
 
 end

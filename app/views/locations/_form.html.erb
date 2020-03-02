@@ -1,0 +1,8 @@
+<%= simple_form_for [itinerary, location] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.input :category %>
+  <%= f.input :duration %>
+  <%= f.button :submit, 'Add to itinerary', class: 'btn btn-outline-success' %>
+<% end %>
