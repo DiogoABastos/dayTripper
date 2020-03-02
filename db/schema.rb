@@ -10,10 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_122125) do
+ActiveRecord::Schema.define(version: 2020_03_02_123216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "itineraries", force: :cascade do |t|
+    t.text "description"
+    t.datetime "duration"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_itineraries_on_user_id"
+  end
+
+  create_table "itinerary_locations", force: :cascade do |t|
+    t.bigint "location_id"
+    t.bigint "itinerary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itinerary_id"], name: "index_itinerary_locations_on_itinerary_id"
+    t.index ["location_id"], name: "index_itinerary_locations_on_location_id"
+  end
+
+  create_table "itinerary_tags", force: :cascade do |t|
+    t.bigint "itinerary_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itinerary_id"], name: "index_itinerary_tags_on_itinerary_id"
+    t.index ["tag_id"], name: "index_itinerary_tags_on_tag_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.text "description"
+    t.string "type"
+    t.datetime "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "description"
+    t.integer "rating"
+    t.bigint "user_id"
+    t.bigint "itinerary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itinerary_id"], name: "index_reviews_on_itinerary_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +81,11 @@ ActiveRecord::Schema.define(version: 2020_03_02_122125) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "itineraries", "users"
+  add_foreign_key "itinerary_locations", "itineraries"
+  add_foreign_key "itinerary_locations", "locations"
+  add_foreign_key "itinerary_tags", "itineraries"
+  add_foreign_key "itinerary_tags", "tags"
+  add_foreign_key "reviews", "itineraries"
+  add_foreign_key "reviews", "users"
 end
