@@ -19,4 +19,8 @@ module ApplicationHelper
       "#{a} #{plural('hour', a)} and #{b} #{plural('min', b)}"
     end
   end
+
+  def stars(rating)
+    '★' * rating + '☆' * (5 - rating)
+  end
 end
