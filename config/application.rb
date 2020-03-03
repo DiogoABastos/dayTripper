@@ -12,6 +12,7 @@ module DayTripper
           generate.assets false
           generate.helper false
           generate.test_framework  :test_unit, fixture: false
+          config.assets.paths << "#{Rails.root}/app/assets/videos"
         end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
