@@ -1,0 +1,39 @@
+.card-location {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.card-location img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-location h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-location p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  padding-bottom: 35px;
+}
+
+.card-location h3 {
+  font-size: 14px;
+}
+
+.card-location .card-location-infos {
+  padding-left: 8px;
+  width: 100%;
+}
+
+
