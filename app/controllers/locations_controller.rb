@@ -1,15 +1,14 @@
 class LocationsController < ApplicationController
   before_action :find_itinerary
+  before_action :find_location, except: [:new, :create]
 
   def show
-    @location = Location.find(params[:id])
-    authorize @location
-
     if @location
     @markers =
        {
         lat: @location.latitude,
         lng: @location.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { location: location })
        }
     end
   end
@@ -33,6 +32,22 @@ class LocationsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @location.update(location_params)
+      redirect_to @itinerary
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @location.destroy
+
+    redirect_to @itinerary
+  end
+
   private
 
   def location_params
@@ -41,5 +56,10 @@ class LocationsController < ApplicationController
 
   def find_itinerary
     @itinerary = Itinerary.find(params[:itinerary_id])
+  end
+
+  def find_location
+    @location = Location.find(params[:id])
+    authorize @location
   end
 end
