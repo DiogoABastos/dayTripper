@@ -16,9 +16,8 @@ ActiveRecord::Schema.define(version: 2020_03_03_064845) do
   enable_extension "plpgsql"
 
   create_table "itineraries", force: :cascade do |t|
-    t.string "name"
     t.text "description"
-    t.integer "duration"
+    t.datetime "duration"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,8 +46,8 @@ ActiveRecord::Schema.define(version: 2020_03_03_064845) do
     t.string "name"
     t.string "address"
     t.text "description"
-    t.string "category"
-    t.integer "duration"
+    t.string "type"
+    t.datetime "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
@@ -91,6 +90,10 @@ ActiveRecord::Schema.define(version: 2020_03_03_064845) do
   end
 
   add_foreign_key "itineraries", "users"
+  add_foreign_key "itinerary_locations", "itineraries"
+  add_foreign_key "itinerary_locations", "locations"
+  add_foreign_key "itinerary_tags", "itineraries"
+  add_foreign_key "itinerary_tags", "tags"
   add_foreign_key "reviews", "itineraries"
   add_foreign_key "reviews", "users"
 end
