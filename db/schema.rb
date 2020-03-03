@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_123216) do
+ActiveRecord::Schema.define(version: 2020_03_03_064845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "itineraries", force: :cascade do |t|
+    t.string "name"
     t.text "description"
-    t.datetime "duration"
+    t.integer "duration"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,10 +47,12 @@ ActiveRecord::Schema.define(version: 2020_03_02_123216) do
     t.string "name"
     t.string "address"
     t.text "description"
-    t.string "type"
-    t.datetime "duration"
+    t.string "category"
+    t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -88,10 +91,6 @@ ActiveRecord::Schema.define(version: 2020_03_02_123216) do
   end
 
   add_foreign_key "itineraries", "users"
-  add_foreign_key "itinerary_locations", "itineraries"
-  add_foreign_key "itinerary_locations", "locations"
-  add_foreign_key "itinerary_tags", "itineraries"
-  add_foreign_key "itinerary_tags", "tags"
   add_foreign_key "reviews", "itineraries"
   add_foreign_key "reviews", "users"
 end

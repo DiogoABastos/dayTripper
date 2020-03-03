@@ -4,8 +4,8 @@ class CreateLocations < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :address
       t.text :description
-      t.string :type
-      t.datetime :duration
+      t.string :category
+      t.integer :duration
 
       t.timestamps
     end

@@ -1,0 +1,24 @@
+<h1>Show page</h1>
+
+<% if policy(Location).create? %>
+ <%= link_to '➕ Add locations', new_itinerary_location_path(@itinerary) %>
+<% end %>
+
+<h2><%= @itinerary.name %>
+<% if policy(@itinerary).destroy? %>
+  (<%= link_to '✎', edit_itinerary_path(@itinerary) %>)
+<% end %>
+</h2>
+<hr>
+<ol>
+  <% @itinerary.locations.each do |location| %>
+    <li><%= link_to location.name, itinerary_location_path(@itinerary, location) %> (<%= duration(location.duration) %>)</li>
+    <br>
+  <% end %>
+</ol>
+
+<%= link_to '🔙', itineraries_path %>
+
+<% if policy(@itinerary).destroy? %>
+  <%= link_to '🚮', @itinerary, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

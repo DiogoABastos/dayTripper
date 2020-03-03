@@ -1,0 +1,12 @@
+<h1><%= @location.name %></h1>
+<p><%= @location.description %></p>
+<p><%= duration(@location.duration) %></p>
+<%= link_to '🔙', itinerary_path(@itinerary) %>
+
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
