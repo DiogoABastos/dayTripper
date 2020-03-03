@@ -1,0 +1,75 @@
+.home_video {
+ width: 100vw;
+ height: 80vh;
+ position: absolute;
+ display: flex;
+ justify-content: center;
+ object-fit: cover;
+ top: 0;
+ z-index: -2;
+}
+
+.home-video-wrapper {
+  height: 80vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+h1 {
+  font-size: 64px;
+  font-weight: bold;
+  margin-bottom: 35px;
+  color: white;
+  font-family: 'Gloria Hallelujah', ;
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 20px;
+  }
+}
+
+#bn-cta{
+  width: 900px;
+  word-spacing: 25px;
+}
+
+.home-video-wrapper {
+  h2 {
+    font-size: 48px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(105, 143, 176, 0.3);
+    padding: 5px;
+  }
+}
+
+.btn-banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+  .btn {
+    padding: 15px 24px;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 100px 50px;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 2px;
+  }
+  h3 {
+    margin: 100px 15px 0px 15px;
+    font-size: 48px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+
+    }
+}
+
+.banner-content{
+  // padding: 25px;
+  box-shadow: 5px;
+  margin: 100px 140px 100px 140px;
+
+}
