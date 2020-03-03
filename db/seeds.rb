@@ -13,6 +13,7 @@ Location.destroy_all
 Itinerary.destroy_all
 
 
+
 puts 'creating two users'
 a = User.create!({ email: 'a@gmail.com', password: 123456, username: 'megabebe' })
 b = User.create!({ email: 'b@gmail.com', password: 123456, username: 'megagigante' })
