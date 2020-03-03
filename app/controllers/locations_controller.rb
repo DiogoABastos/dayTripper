@@ -4,6 +4,14 @@ class LocationsController < ApplicationController
   def show
     @location = Location.find(params[:id])
     authorize @location
+
+    if @location
+    @markers =
+       {
+        lat: @location.latitude,
+        lng: @location.longitude,
+       }
+    end
   end
 
   def new
