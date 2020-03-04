@@ -13,6 +13,14 @@ class LocationPolicy < ApplicationPolicy
     user_owner
   end
 
+  def update?
+    user_owner
+  end
+
+  def destroy?
+    user_owner
+  end
+
   private
 
   def user_owner

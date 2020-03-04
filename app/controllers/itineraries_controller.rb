@@ -5,7 +5,18 @@ class ItinerariesController < ApplicationController
     @itineraries = policy_scope(Itinerary)
   end
 
-  def show; end
+  def show
+    @locations = @itinerary.locations
+    @location = Location.new
+
+    @markers = @locations.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { location: location })
+      }
+    end
+  end
 
   def new
     @itinerary = Itinerary.new
