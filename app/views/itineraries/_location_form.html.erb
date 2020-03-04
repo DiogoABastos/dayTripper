@@ -1,6 +1,7 @@
 <%= simple_form_for([itinerary, location], remote: true) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :duration %>
-  <%= f.button :submit, 'Add to itinerary', class: 'btn btn-outline-success' %>
+  <%= f.input :name, label: false, placeholder: "Customize the name of your location" %>
+  <%= f.input :address, label: false, placeholder: "Search for destinations" %>
+  <%= f.input :category, label: false, placeholder: "Add trip tags" %>
+  <%= f.input :duration, label: false, placeholder: "How much time at this location?" %>
+  <%= f.button :submit, 'Add to trip', class: 'btn-location-add' %>
 <% end %>
