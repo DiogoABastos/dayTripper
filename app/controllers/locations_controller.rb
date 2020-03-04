@@ -65,7 +65,7 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:name, :address, :description, :category, :duration)
+    params.require(:location).permit(:name, :address, :description, :category, :duration, photos: [])
   end
 
   def find_itinerary
