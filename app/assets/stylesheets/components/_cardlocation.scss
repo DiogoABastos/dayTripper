@@ -21,7 +21,7 @@
 }
 
 .card-location img {
-  min-height: 100%;
+  height: 100vh;
   width: 110px;
   object-fit: cover;
 }
@@ -118,5 +118,4 @@ a {
   justify-content: space-between;
   align-items: flex-end;
 }
-
 

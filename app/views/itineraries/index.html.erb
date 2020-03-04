@@ -1,30 +1,28 @@
-<h1>All</h1>
+<h1>Itineraries</h1>
 <% if policy(Itinerary).create? %>
   <%= link_to 'New Itinerary', new_itinerary_path  %>
 <% end %>
-<% @itineraries.each do |itinerary| %>
-  <h2><%= itinerary.name %></h2>
-  <p><%= duration(itinerary.duration) %></p>
-  <br>
-  <h3>Locations</h3>
-  <% itinerary.locations.each do |location| %>
-    <%= location.name %>
-    <br>
-  <% end %>
-  <%= link_to 'See Itinerary', itinerary %>
-  <hr>
-<% end %>
 
+<div class="index-container">
+  <div class="cards">
+    <% @itineraries.each do |itinerary| %>
+    <%= link_to itinerary, class:"cards-link" do %>
+        <div class="card-trip">
+          <%= image_tag "bridge", alt: "alttext" %>
+          <div class="card-trip-infos">
+            <div>
+              <h2 class="pb-1"><%= itinerary.name %></h2>
 
-
-<!-- <div class="card-trip">
-  <%= image_tag "bridge", alt: "alttext" %>
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
-    </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
+              <p>Short description here!</p>
+            </div>
+            <div class="ratings-clock">
+             <p class="pb-1">ratings</p>
+             <p class="pr-1"><i class="far fa-clock p-1"></i><%=duration(itinerary.duration) %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
+  <img id="map-index" src="https://raw.githubusercontent.com/lewagon/layouts-demo/gh-pages/images/mapbox.png" alt="">
 </div>
- -->
