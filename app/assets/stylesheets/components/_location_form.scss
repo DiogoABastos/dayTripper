@@ -9,12 +9,26 @@
 //   transform: scale(0.8);
 // }
 
-.location-form {}
-
 .btn-location-add{
-  background-color: $_light_grey;
-  width: 70px;
-  height: 30px;
-  font-size: 10px;
+  width: 90%;
+  background-color: blue;
   color: white;
+  margin: 10px;
+}
+
+.form-group{
+  margin-left: 10px;
+  margin: 0px;
+  padding: 5px;
+
+}
+
+.form-short-box{
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+}
+
+.icon-form{
+  font-size: 14px;
 }
