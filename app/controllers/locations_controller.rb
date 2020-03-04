@@ -3,13 +3,20 @@ class LocationsController < ApplicationController
   before_action :find_location, except: [:new, :create]
 
   def show
-    if @location
+    if @location.geocoded?
     @markers =
        {
         lat: @location.latitude,
         lng: @location.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { location: location })
+        infoWindow: render_to_string(partial: "info_window", locals: { location: @location })
        }
+     else
+      @default_location = Location.geocoded.first
+      @markers = {
+        lat: @default_location.latitude,
+        lng: @default_location.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { location: @location })
+      }
     end
   end
 
@@ -45,7 +52,6 @@ class LocationsController < ApplicationController
   def destroy
     @location.destroy
 
-    redirect_to @itinerary
   end
 
   private

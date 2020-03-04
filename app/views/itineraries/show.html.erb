@@ -18,25 +18,27 @@
     </div>
 
     <% @itinerary.locations.each do |location| %>
-    <div class="card-location">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-location-infos">
-        <h2>
-          <%=location.name %>
-          <% if policy(@itinerary).destroy? %>
-            <%= link_to '(✎)', edit_itinerary_location_path(@itinerary, location) %>
-            <%= link_to '(🧨)', itinerary_location_path(@itinerary, location), method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </h2>
-        <p><%=location.description %></p>
-        <div class='d-flex align-items-end justify-content-between '>
-          <h3><i class="fas fa-tag p-1"></i><%=location.category%></h3>
-          <h3 class="pr-1"><i class="far fa-clock p-1"></i><%=duration(location.duration) %></h3>
-        </div>
-      </div>
-    </div>
+      <%= link_to itinerary_location_path(@itinerary, location) do %>
+        <div class="card-location" data-location-id="<%= location.id %>">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-location-infos">
+              <h2>
+                <%= location.name %>
+                <% if policy(@itinerary).destroy? %>
+                  <%= link_to '(✎)', edit_itinerary_location_path(@itinerary, location) %>
+                  <%= link_to '(🧨)', itinerary_location_path(@itinerary, location), method: :delete, remote: true %>
+                <% end %>
+              </h2>
+              <p><%=location.description %></p>
+              <div class='d-flex align-items-end justify-content-between '>
+                <h3><i class="fas fa-tag p-1"></i><%=location.category%></h3>
+                <h3 class="pr-1"><i class="far fa-clock p-1"></i><%=duration(location.duration) %></h3>
+              </div>
+            </div>
+          </div>
+      <% end %>
     <% end %>
-  </div>
+      </div>
 
     <div class="h-100 col-8">
       <div
