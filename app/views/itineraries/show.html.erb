@@ -1,7 +1,9 @@
 
 <div class="row">
   <div class="col-4">
-    <p>RENDER PARTIAL SEARCH HERE</p>
+    <div class="location-form" id="ajax-location-form">
+      <%= render 'location_form', itinerary: @itinerary, location: @location %>
+    </div>
   </div>
 
   <div class="col-8 p-0">
@@ -22,7 +24,7 @@
         <% end %>
         <% if policy(Location).create? %>
           <%= link_to new_itinerary_location_path(@itinerary) do %>
-            <i class="fas fa-plus-circle"></i>
+            <i class="fas fa-plus-circle add-location"></i>
           <% end %>
         <% end %>
         <hr>
@@ -32,36 +34,12 @@
 </div>
 
 <div class="row">
-  <div class="col-4">
+  <div class="col-4" id="location-cards">
     <% @itinerary.locations.each do |location| %>
     <%= link_to itinerary_location_path(@itinerary, location) do %>
 
-    <div class="card-location" data-location-id="<%= location.id %>">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-location-infos ">
-        <div class="card-location-header">
-        <h2>
-          <%=location.name %>
-          </h2>
-          <div class="header-icons">
-          <% if policy(@itinerary).destroy? %>
-            <%= link_to edit_itinerary_location_path(@itinerary, location) do %>
-              <i class="fas fa-edit"></i>
-              <% end %>
-            <%= link_to itinerary_location_path(@itinerary, location), method: :delete, remote: true do %>
-            <i class="far fa-trash-alt"></i>
-            <% end %>
-          <% end %>
-          </div>
-        </div>
-        <p class="max-lines"><%=location.description %></p>
-        <div class='card-snapshots'>
-          <h3><i class="fas fa-tag p-1"></i><%=location.category%></h3>
-          <h3 class="pr-1"><i class="far fa-clock p-1"></i><%=duration(location.duration) %></h3>
-        </div>
-      </div>
-    </div>
-    <div class="timeline-entrance"><i class="fas fa-circle timeline-circle"></i></div>
+    <%= render 'location', itinerary: @itinerary, location: location %>
+    
     <% end %>
     <% end %>
   </div>

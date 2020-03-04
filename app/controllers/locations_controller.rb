@@ -27,15 +27,23 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
-    authorize @itinerary
+
 
     @location.itineraries << @itinerary
     @itinerary.duration += @location.duration
 
+    authorize @location
+
     if @location.save
-      redirect_to @itinerary
+      respond_to do |format|
+        format.html { redirect_to itinerary_path(@itinerary) }
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render 'itineraries/location' }
+        format.js
+      end
     end
   end
 
