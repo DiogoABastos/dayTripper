@@ -18,3 +18,14 @@ initAutocomplete();
 const pagesHome = document.querySelector(".home");
 const navbarTarget = document.querySelector(".navbar-lewagon");
 if(pagesHome) navbarTarget.classList.add("nav-transparent");
+
+const add = document.querySelector(".add-location");
+console.log(add);
+const form = document.querySelector(".location-form");
+
+if (add) {
+  add.addEventListener('click', (e) => {
+    e.preventDefault();
+    form.classList.toggle('form-show');
+  });
+}
