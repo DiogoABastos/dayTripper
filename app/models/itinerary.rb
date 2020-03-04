@@ -7,4 +7,5 @@ class Itinerary < ApplicationRecord
 
   has_many :itinerary_locations
   has_many :locations, through: :itinerary_locations
+  has_many_attached :photos
 end

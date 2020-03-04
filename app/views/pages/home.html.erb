@@ -1,6 +1,6 @@
 
 <div class="home-video-wrapper">
-  <%= video_tag "banner.mp4", autoplay: 'true', loop: 'true', mute: 'true', class: "home_video" %>
+  <%= video_tag "banner.mp4", autoplay: 'true',preload: 'true', loop: 'true', mute: 'true', class: "home_video" %>
   <divc class="banner-content">
     <div>
      <h1 class="home"> DayTripper <i class="fas fa-map-marker-alt"></i></h1>
@@ -8,12 +8,11 @@
     </div>
     <div class="btn-banner">
         <%= link_to itineraries_path do %>
-        <button class="btn btn-primary">Search Itineraries</button>
+        <button class="btn btn-primary"><i class="fas fa-search-location"></i> Search Itineraries</button>
          <% end %>
         <%= link_to new_itinerary_path do %>
-        <button class="btn btn-primary">Build my Own</button>
+        <button class="btn btn-primary"><i class="fas fa-map-marked-alt"></i>  Build my Own</button>
         <% end %>
     </div>
   </div>
 </div>
-
