@@ -8,8 +8,6 @@ function addLocation(locationHTML) {
   locations.insertAdjacentHTML('beforeend', locationHTML);
 }
 
-console.log('hey');
-
 <% if @location.errors.any? %>
   refreshForm('<%= j render "itineraries/location_form", itinerary: @itinerary, location: @location %>');
 <% else %>
