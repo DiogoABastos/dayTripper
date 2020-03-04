@@ -1,8 +1,65 @@
+.index-container {
+  // width: 600px;
+  // margin: 0 auto;
+  display: flex;
+  // justify-content: center;
+
+}
+
+.cards {
+  display: grid;
+  // grid-auto-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  // justify-items: center;
+  flex-grow: 1;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#map-index {
+  height: 88vh;
+  top: 56px;
+  position: sticky;
+}
+
 .card-trip {
   overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 300px;
+  border-radius: 5px;
+    position: relative;
+  display: inline-block;
+
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+.card-trip::after {
+  content: "";
+  border-radius: 5px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card-trip:hover {
+  -webkit-transform: scale(1.10, 1.10);
+  transform: scale(1.10, 1.10);
+}
+
+.card-trip:hover::after {
+    opacity: 1;
 }
 
 .card-trip > img {
@@ -28,8 +85,10 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  // align-items: flex-end;
   position: relative;
+  color:black;
+
 }
 
 .card-trip-infos .card-trip-user {
@@ -37,4 +96,11 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.ratings-clock {
+  // position: absolute;
+  text-align: right;
+
+
 }
