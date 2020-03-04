@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-4">
     <p>RENDER PARTIAL SEARCH HERE</p>
@@ -34,6 +35,7 @@
   <div class="col-4">
     <% @itinerary.locations.each do |location| %>
     <%= link_to itinerary_location_path(@itinerary, location) do %>
+
     <div class="card-location" data-location-id="<%= location.id %>">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
       <div class="card-location-infos ">
@@ -59,17 +61,20 @@
         </div>
       </div>
     </div>
+    <div class="timeline-entrance"><i class="fas fa-circle timeline-circle"></i></div>
     <% end %>
     <% end %>
   </div>
+
   <div class="col-8 p-0">
     <div
-    id="map" class="map-locations"
+    id="map" class="itinerary-locations-map"
     style="width: 100%;
-    height: 600px;"
+    height: 100%;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 </div>
+
 
