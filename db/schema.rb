@@ -37,9 +37,8 @@ ActiveRecord::Schema.define(version: 2020_03_04_120651) do
   end
 
   create_table "itineraries", force: :cascade do |t|
-    t.string "name"
     t.text "description"
-    t.integer "duration"
+    t.datetime "duration"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -68,8 +67,8 @@ ActiveRecord::Schema.define(version: 2020_03_04_120651) do
     t.string "name"
     t.string "address"
     t.text "description"
-    t.string "category"
-    t.integer "duration"
+    t.string "type"
+    t.datetime "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
@@ -113,6 +112,10 @@ ActiveRecord::Schema.define(version: 2020_03_04_120651) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "itineraries", "users"
+  add_foreign_key "itinerary_locations", "itineraries"
+  add_foreign_key "itinerary_locations", "locations"
+  add_foreign_key "itinerary_tags", "itineraries"
+  add_foreign_key "itinerary_tags", "tags"
   add_foreign_key "reviews", "itineraries"
   add_foreign_key "reviews", "users"
 end
