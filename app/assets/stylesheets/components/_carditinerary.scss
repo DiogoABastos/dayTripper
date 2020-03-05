@@ -17,11 +17,11 @@
   padding-right: 15px;
 }
 
-#map-index {
-  height: 88vh;
-  top: 56px;
-  position: sticky;
-}
+// .map-index {
+//   height: 88vh !important;
+//   top: 56px !important;
+//   position: sticky !important;
+// }
 
 .card-trip {
   overflow: hidden;
@@ -101,6 +101,11 @@
 .ratings-clock {
   // position: absolute;
   text-align: right;
+}
 
+.card-left {
 
+}
+
+.card-btn {
 }
