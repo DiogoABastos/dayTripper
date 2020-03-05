@@ -7,5 +7,15 @@ class Itinerary < ApplicationRecord
 
   has_many :itinerary_locations
   has_many :locations, through: :itinerary_locations
+
   has_many_attached :photos
+
+  def markers_method
+      self.locations.map do |location|
+        {
+          "lat" => location.latitude,
+          "lng" => location.longitude
+        }
+      end
+  end
 end

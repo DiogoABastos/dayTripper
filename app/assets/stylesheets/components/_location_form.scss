@@ -9,12 +9,35 @@
 //   transform: scale(0.8);
 // }
 
-.location-form {}
-
 .btn-location-add{
-  background-color: $_light_grey;
-  width: 70px;
-  height: 30px;
-  font-size: 10px;
+  width: 50%;
+  background-color: lightblue;
   color: white;
+  margin: 10px 20px 10px 20px;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.form-group{
+  margin-left: 10px;
+  margin: 0px;
+  padding: 5px 20px 5px 20px;
+    input{
+  border-radius: 5px;
+  box-shadow: 1px;
+  width: 100%;
+  }
+
+}
+
+.form-short-box{
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+
+}
+
+.icon-form{
+  font-size: 14px;
 }

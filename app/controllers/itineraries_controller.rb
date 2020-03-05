@@ -3,6 +3,22 @@ class ItinerariesController < ApplicationController
 
   def index
     @itineraries = policy_scope(Itinerary)
+
+    # @markers = []
+
+    # @itineraries.each do |itinerary|
+
+    #   @locations = itinerary.locations
+
+    #   @marker = @locations.map do |location|
+    #     {
+    #       lat: location.latitude,
+    #       lng: location.longitude
+    #     }
+    #   end
+    #   @markers << @marker
+    #   @markers_hash =  @markers.flatten
+    # end
   end
 
   def show

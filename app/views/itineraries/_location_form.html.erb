@@ -1,7 +1,27 @@
+
 <%= simple_form_for([itinerary, location], remote: true) do |f| %>
-  <%= f.input :name, label: false, placeholder: "Customize the name of your location" %>
-  <%= f.input :address, label: false, placeholder: "Search for destinations" %>
-  <%= f.input :category, label: false, placeholder: "Add trip tags" %>
-  <%= f.input :duration, label: false, placeholder: "How much time at this location?" %>
-  <%= f.button :submit, 'Add to trip', class: 'btn-location-add' %>
+    <div class="">
+<!--     <i class="fas fa-search-location icon-form"></i> -->
+    <%= f.input :address, label: false, placeholder: "Search for destinations" %>
+  </div>
+  <div class="">
+<!--     <i class="far fa-hand-point-right icon-form"></i> -->
+    <%= f.input :name, label: false, placeholder: "Customize the name of your location" %>
+  </div>
+
+  <div class="form-short-box">
+    <div class=" d-flex align-items-center">
+      <i class="fas fa-tag icon-form"></i>
+      <%= f.input :category, label: false, placeholder: "Add trip tags"%>
+      </div>
+    <div class="d-flex align-items-center">
+      <i class="far fa-clock icon-form "></i>
+      <%= f.input :duration, label: false, placeholder: "Time at destination?" %>
+    </div>
+  </div>
+  <div class= "d-flex align-items-center">
+     <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
+    <%= f.button :submit, 'Add Location', class: 'btn-location-add' %>
+  </div>
 <% end %>
+
