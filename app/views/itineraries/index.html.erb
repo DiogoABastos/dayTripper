@@ -7,7 +7,7 @@
   <div class="cards">
     <% @itineraries.each do |itinerary| %>
 
-        <div class="card-trip"  >
+        <div class="card-trip">
           <div class="index-click-map" data-markers="<%= itinerary.markers_method.to_json %>">
             <%= image_tag "bridge", alt: "alttext" %>
           </div>
