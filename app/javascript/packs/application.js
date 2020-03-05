@@ -1,9 +1,5 @@
 import "bootstrap";
 
-const pagesHome = document.querySelector(".home");
-const navbarTarget = document.querySelector(".navbar-lewagon");
-if(pagesHome) navbarTarget.classList.add("nav-transparent");
-
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { initMapbox } from '../plugins/init_mapbox';
@@ -17,3 +13,19 @@ initMapbox();
 
 initAutocomplete();
 
+const pagesHome = document.querySelector(".home");
+const navbarTarget = document.querySelector(".navbar-lewagon");
+if(pagesHome) navbarTarget.classList.add("nav-transparent");
+
+
+  const mapIndex = document.getElementById("map");
+  const indexClick = document.querySelectorAll(".index-click-map");
+
+  indexClick.forEach((itinerary) => {
+    itinerary.addEventListener("click", (event) => {
+      let currentMarkers = itinerary.dataset.markers;
+
+      mapIndex.dataset.markers = currentMarkers.replace("=>",":");
+      initMapbox();
+    });
+  });
