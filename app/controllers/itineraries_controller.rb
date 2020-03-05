@@ -23,11 +23,13 @@ class ItinerariesController < ApplicationController
 
   def show
     @locations = @itinerary.locations
+    @location = Location.new
 
     @markers = @locations.map do |location|
       {
         lat: location.latitude,
-        lng: location.longitude
+        lng: location.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { location: location })
       }
     end
 

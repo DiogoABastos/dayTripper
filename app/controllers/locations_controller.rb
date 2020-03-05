@@ -3,13 +3,20 @@ class LocationsController < ApplicationController
   before_action :find_location, except: [:new, :create]
 
   def show
-    if @location
+    if @location.geocoded?
     @markers =
        {
         lat: @location.latitude,
         lng: @location.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { location: location })
+        infoWindow: render_to_string(partial: "info_window", locals: { location: @location })
        }
+     else
+      @default_location = Location.geocoded.first
+      @markers = {
+        lat: @default_location.latitude,
+        lng: @default_location.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { location: @location })
+      }
     end
   end
 
@@ -20,15 +27,23 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
-    authorize @itinerary
+
 
     @location.itineraries << @itinerary
     @itinerary.duration += @location.duration
 
+    authorize @location
+
     if @location.save
-      redirect_to @itinerary
+      respond_to do |format|
+        format.html { redirect_to itinerary_path(@itinerary) }
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render 'itineraries/location' }
+        format.js
+      end
     end
   end
 
@@ -45,13 +60,12 @@ class LocationsController < ApplicationController
   def destroy
     @location.destroy
 
-    redirect_to @itinerary
   end
 
   private
 
   def location_params
-    params.require(:location).permit(:name, :address, :description, :category, :duration)
+    params.require(:location).permit(:name, :address, :description, :category, :duration, photos: [])
   end
 
   def find_itinerary

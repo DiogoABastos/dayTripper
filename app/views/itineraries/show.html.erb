@@ -1,15 +1,7 @@
 <div class="row">
-  <div class="col-4">
-    <p>RENDER PARTIAL SEARCH HERE</p>
-  </div>
-
-  <div class="col-8 p-0">
-    <div class="itinerary-details">
-      <div>
-        <p class="m-0 p-0">Trip Name</p>
-        <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
-      </div>
-
+  <div class="col-4 window-view">
+   <div class="itinerary-details">
+      <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
       <div class="itinerary-icons">
         <%= link_to itineraries_path do %>
           <i class="fas fa-arrow-circle-left"></i>
@@ -21,60 +13,36 @@
         <% end %>
         <% if policy(Location).create? %>
           <%= link_to new_itinerary_location_path(@itinerary) do %>
-            <i class="fas fa-plus-circle"></i>
+            <i class="fas fa-plus-circle add-location"></i>
           <% end %>
         <% end %>
-          <% if policy(@itinerary).destroy? %>
-            <%= link_to edit_itinerary_path(@itinerary) do %>
-              <i class="fas fa-edit"></i>
-            <% end %>
-          <% end %>
+        <hr>
       </div>
     </div>
-  </div>
-</div>
+    <div class="location-form" id="ajax-location-form">
+      <%= render 'location_form', itinerary: @itinerary, location: @location %>
+    </div>
 
-
-  <div class="row">
-    <div class="col-4">
+    <div id="location-cards">
       <% @itinerary.locations.each do |location| %>
       <%= link_to itinerary_location_path(@itinerary, location) do %>
-      <div class="card-location">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-location-infos ">
-          <div class="card-location-header">
-          <h2>
-            <%=location.name %>
-            </h2>
-            <div class="header-icons">
-            <% if policy(@itinerary).destroy? %>
-              <%= link_to edit_itinerary_location_path(@itinerary, location) do %>
-                <i class="fas fa-edit"></i>
-                <% end %>
-              <%= link_to itinerary_location_path(@itinerary, location), method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <i class="far fa-trash-alt"></i>
-              <% end %>
-            <% end %>
-            </div>
-          </div>
-          <p class="max-lines"><%=location.description %></p>
-          <div class='card-snapshots'>
-            <h3><i class="fas fa-tag p-1"></i><%=location.category%></h3>
-            <h3 class="pr-1"><i class="far fa-clock p-1"></i><%=duration(location.duration) %></h3>
-          </div>
-        </div>
-      </div>
+      
+      <%= render 'location', itinerary: @itinerary, location: location %>
+      
       <% end %>
       <% end %>
     </div>
-      <div class="col-8 p-0">
-        <div
-        id="map" class="map-locations"
-        style="width: 100%;
-        height: 600px;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-      </div>
+  </div>
+
+  <div class="col-8 p-0">
+    <div
+    id="map" class="itinerary-locations-map"
+    style="width: 100%;
+    height: 100vh;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
+
+

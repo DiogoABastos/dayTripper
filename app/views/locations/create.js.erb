@@ -1,0 +1,16 @@
+function refreshForm(innerHTML) {
+  const newLocationForm = document.getElementById('ajax-location-form');
+  newLocationForm.innerHTML = innerHTML;
+}
+
+function addLocation(locationHTML) {
+  const locations = document.getElementById('location-cards');
+  locations.insertAdjacentHTML('beforeend', locationHTML);
+}
+
+<% if @location.errors.any? %>
+  refreshForm('<%= j render "itineraries/location_form", itinerary: @itinerary, location: @location %>');
+<% else %>
+  addLocation('<%= j render "itineraries/location", itinerary: @itinerary, location: @location %>');
+  refreshForm('<%= j render "itineraries/location_form", itinerary: @itinerary, location: Location.new %>');
+<% end %>
