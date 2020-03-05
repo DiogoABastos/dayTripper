@@ -33,6 +33,8 @@ class ItinerariesController < ApplicationController
       }
     end
 
+    @review = Review.new
+    @reviews = @itinerary.reviews
   end
 
   def new

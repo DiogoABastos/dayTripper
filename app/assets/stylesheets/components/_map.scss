@@ -6,3 +6,11 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
+
+.the-map {
+  transition: transform 1s ease;
+}
+
+.the-map-active {
+  transform: translateX(100%);
+}

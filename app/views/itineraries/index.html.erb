@@ -20,7 +20,7 @@
               <%= link_to "Go on Itinerary", itinerary, class:"btn btn-primary btn-sm card-btn" %>
             </div>
             <div class="ratings-clock">
-             <p class="pb-1">ratings</p>
+             <p class="pb-1"><%= rating(itinerary.reviews) %></p>
              <p class="pr-1"><i class="far fa-clock p-1"></i><%=duration(itinerary.duration) %></p>
             </div>
           </div>

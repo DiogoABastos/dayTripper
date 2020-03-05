@@ -1,0 +1,11 @@
+.review-form {
+  transform: translateY(-600%);
+  width: 50%;
+  transition: transform 1s ease;
+}
+
+.review-form-active {
+  transform: translate(50%, -280%) scale(1.3);
+}
+
+
