@@ -1,0 +1,16 @@
+function refreshForm(innerHTML) {
+  const newReviewForm = document.getElementById('ajax-review-form');
+  newReviewForm.innerHTML = innerHTML;
+}
+
+function addReview(reviewHTML) {
+  const reviews = document.querySelector('.review-cards-five');
+  reviews.insertAdjacentHTML('afterbegin', reviewHTML);
+}
+
+<% if @review.errors.any? %>
+  refreshForm('<%= j render "itineraries/review_form", itinerary: @itinerary, review: @review %>');
+<% else %>
+  addReview('<%= j render "itineraries/review", review: @review %>');
+  refreshForm('<%= j render "itineraries/review_form", itinerary: @itinerary, review: Review.new %>');
+<% end %>

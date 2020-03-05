@@ -16,6 +16,9 @@ class ItinerariesController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { location: location })
       }
     end
+
+    @review = Review.new
+    @reviews = @itinerary.reviews
   end
 
   def new

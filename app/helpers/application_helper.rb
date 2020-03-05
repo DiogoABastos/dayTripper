@@ -23,4 +23,22 @@ module ApplicationHelper
   def stars(rating)
     '★' * rating + '☆' * (5 - rating)
   end
+
+  def rating(reviews)
+    sum = reviews.map { |review| review.rating }.reduce(0, :+)
+    if reviews.count != 0
+      stars(sum / reviews.count) + ' (' + reviews.count.to_s + plural(' review', reviews.count) + ')'
+    else
+      'No reviews'
+    end
+  end
+
+  def total_rating(reviews)
+    sum = reviews.map { |review| review.rating }.reduce(0, :+)
+    if reviews.count != 0
+      (sum.fdiv(reviews.count).round(2)).to_s + ' ' + stars(sum / reviews.count)
+    else
+      'No reviews'
+    end
+  end
 end
