@@ -1,6 +1,7 @@
 
 .window-view{
   height: 100vh;
+  padding-right: 10px;
 }
 #itinerary-name {
   font-size: 20px;
@@ -20,14 +21,9 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin: 0px 20px 10px 10px;
+  margin: 0px 20px 10px 20px;
 }
 
-.card-location img {
-  height: 100vh;
-  width: 110px;
-  object-fit: cover;
-}
 
 .card-location h2 {
   font-size: 14px;
@@ -95,7 +91,9 @@
 .itinerary-locations-map{
   position: fixed;
   top: 10px;
-  margin-left: 17px;
+  border-radius: 5px;
+  box-shadow: 1px;
+  // margin-left: 17px;
 }
 
 a {
@@ -118,14 +116,16 @@ a {
 }
 
 .itinerary-details{
-  margin: 10px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 #location-cards{
-  height: 55%;
+  height: 58%;
   overflow-y: auto;
 
 }

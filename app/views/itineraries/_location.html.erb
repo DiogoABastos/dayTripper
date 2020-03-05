@@ -1,5 +1,9 @@
 <div class="card-location" data-location-id="<%= location.id %>">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <% if location.photos.attached?%>
+    <%= cl_image_tag location.photos.last.key, height:100, width: 100, :crop=>"scale" %>
+  <% else%>
+    <%= cl_image_tag 'yp95sgxwqvengyn1fwic', height:100, width: 100, :crop=>"scale" %>
+  <% end %>
   <div class="card-location-infos ">
     <div class="card-location-header">
     <h2>
