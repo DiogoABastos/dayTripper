@@ -21,7 +21,11 @@ module ApplicationHelper
   end
 
   def stars(rating)
-    '★' * rating + '☆' * (5 - rating)
+    if (rating <= 5)
+      '★' * rating + '☆' * (5 - rating)
+    else
+      'Bullshirt'
+    end
   end
 
   def rating(reviews)
