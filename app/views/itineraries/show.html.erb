@@ -1,8 +1,19 @@
-
 <div class="row">
-  <div class="col-4 window-view">
+  <div class="col-5 window-view">
    <div class="itinerary-details">
       <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
+
+      <% if current_user %>
+        <a href="#" id="review-button"><i class="far fa-smile"></i>(Add Rating)</a>
+      <% end %>
+
+      <div class="d-flex align-items-center">
+        <% if @itinerary.locations.exists? %>
+          <%=link_to googlemap(@itinerary), target: "_blank", class: 'btn-google-maps' do %>
+            <h2>Open on <i class="fab fa-google"></i>oogle Maps</h2>
+          <% end %>
+        <% end %>
+      </div>
       <div class="itinerary-icons">
         <%= link_to itineraries_path do %>
           <i class="fas fa-arrow-circle-left"></i>
@@ -12,11 +23,14 @@
             <i class="far fa-trash-alt"></i>
           <% end %>
         <% end %>
+
       </div>
     </div>
     <div class="location-form" id="ajax-location-form">
       <%= render 'location_form', itinerary: @itinerary, location: @location %>
     </div>
+
+
 
     <div id="location-cards">
       <% @itinerary.locations.each do |location| %>
@@ -25,16 +39,31 @@
         <%= render 'location', itinerary: @itinerary, location: location %>
 
         <% end %>
+
       <% end %>
     </div>
   </div>
-  <div class="col-8 p-0">
+
+  <div class="col-7 p-0">
     <div
-    id="map" class="itinerary-locations-map"
+    id="map" class="itinerary-locations-map the-map"
     style="width: 100%;
     height: 90vh;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <div class="review-form" id="ajax-review-form">
+      <%= render 'review_form', itinerary: @itinerary, review: @review %>
+    </div>
+
+    <div id="review-show" class="review-cards">
+      <h4><%= @itinerary.name.capitalize %> Reviews</h4>
+        <%= render 'review_rating', itinerary: @itinerary %>
+      <div class="review-cards-five">
+        <% @reviews.last(5).reverse.each do |review| %>
+          <%= render 'review', review: review %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

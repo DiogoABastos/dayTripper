@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
   belongs_to :user
-  belongs_to :itenerary
+  belongs_to :itinerary
 end

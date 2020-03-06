@@ -1,0 +1,37 @@
+function refreshForm(innerHTML) {
+  const newReviewForm = document.getElementById('ajax-review-form');
+  newReviewForm.innerHTML = innerHTML;
+}
+
+function addReview(reviewHTML) {
+  const reviews = document.querySelector('.review-cards-five');
+  reviews.insertAdjacentHTML('afterbegin', reviewHTML);
+}
+
+function update(HTML) {
+  const reviewRating = document.querySelector('.review-rating');
+  reviewRating.insertAdjacentHTML('afterbegin', HTML);
+}
+
+<% if @review.errors.any? %>
+  refreshForm('<%= j render "itineraries/review_form", itinerary: @itinerary, review: @review %>');
+<% else %>
+  addReview('<%= j render "itineraries/review", review: @review %>');
+  update('<%= j render "itineraries/review_rating", itinerary: @itinerary %>')
+  refreshForm('<%= j render "itineraries/review_form", itinerary: @itinerary, review: Review.new %>');
+
+  var reviewFormBtn = document.querySelector('.review-form-btn');
+  var rreviewCards = document.querySelector('.review-cards');
+  var reviewRating = document.querySelector('.review-rating');
+
+  if (reviewFormBtn && rreviewCards && reviewRating) {
+    reviewFormBtn.addEventListener('click', (e) => {
+      if (Array.from(Array.from(rreviewCards.children)[rreviewCards.children.length - 1].children).length >= 5) {
+        Array.from(Array.from(rreviewCards.children)[rreviewCards.children.length - 1].children)[Array.from(Array.from(rreviewCards.children)[rreviewCards.children.length - 1].children).length - 1].remove();
+      }
+
+      reviewRating.lastElementChild.remove();
+    });
+  }
+
+<% end %>
