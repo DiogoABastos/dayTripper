@@ -14,8 +14,9 @@
 
 #page-container {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 152px);
   max-width: 100%;
+
 }
 
 
