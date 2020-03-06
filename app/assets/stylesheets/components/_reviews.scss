@@ -1,10 +1,15 @@
 .review-cards {
+  position: absolute;
   transform: translate(100%, -500%);
   transition: transform 1s ease;
 }
 
 .review-cards-active {
-  transform: translate(10%, -160%);
+  transform: translate(10%, -85%);
+}
+
+textarea {
+  resize: none;
 }
 
 .review-card {
