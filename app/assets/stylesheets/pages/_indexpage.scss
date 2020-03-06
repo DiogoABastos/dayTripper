@@ -40,8 +40,29 @@
   }
 }
 
-/*Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) {
+/*Medium devices (tablets, 900px and up)*/
+@media (min-width: 1224px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  #map {
+    display: block;
+  }
+}
+
+/*Medium devices (tablets, 900px and up)*/
+// @media (min-width: 900px) {
+//   .cards {
+//     grid-template-columns: 1fr 1fr 1fr;
+//   }
+
+//   #map {
+//     display: block;
+//   }
+// }
+
+/* Large devices (laptops/desktops, 1824px and up) */
+@media only screen and (min-width: 1824px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -49,23 +70,3 @@
     display: block;
   }
 }
-
-@media (min-width: 900px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  #map {
-    display: block;
-  }
-}
-
-/* Large devices (laptops/desktops, 1200px and up) */
-// @media only screen and (min-width: 1200px) {
-//   .cards {
-//     grid-template-columns: 1fr 1fr 1fr 1fr;
-//   }
-//   #map {
-//     display: block;
-//   }
-// }
