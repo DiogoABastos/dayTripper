@@ -6,7 +6,11 @@
 }
 
 .review-cards-active {
-  transform: translate(10%, -105%);
+  transform: translate(10%, -85%);
+}
+
+textarea {
+  resize: none;
 }
 
 .review-card {
