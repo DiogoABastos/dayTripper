@@ -3,6 +3,11 @@
   transform: translateY(-600%);
   width: 50%;
   transition: transform 1s ease;
+
+}
+
+textarea {
+  resize: none;
 }
 
 .review-form-active {
