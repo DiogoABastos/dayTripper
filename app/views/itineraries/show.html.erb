@@ -30,8 +30,6 @@
       <%= render 'location_form', itinerary: @itinerary, location: @location %>
     </div>
 
-
-
     <div id="location-cards">
       <% @itinerary.locations.each do |location| %>
         <%= link_to itinerary_location_path(@itinerary, location) do %>
