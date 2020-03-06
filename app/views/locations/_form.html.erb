@@ -1,9 +1,25 @@
-<%= simple_form_for [itinerary, location] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <%= f.input :category %>
-  <%= f.input :duration %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit, 'Add to itinerary', class: 'btn btn-outline-success' %>
-<% end %>
+<div class="page-new-itinerary">
+  <div class="row">
+
+    <div class="col-10 form-login new-itinerary d-flex ">
+      <div>
+        <%= simple_form_for [itinerary, location] do |f| %>
+          <%= f.input :name %>
+          <%= f.input :address %>
+          <%= f.input :description %>
+          <%= f.input :category %>
+          <%= f.input :duration %>
+          <%= f.button :submit, 'Edit Itinerary', class: 'btn btn-outline-success' %>
+      </div>
+      <div>
+        <% if location.photos.attached?%>
+          <%= cl_image_tag location.photos.last.key, height:500, width: 500, :crop=>"scale" %>
+        <% else%>
+          <%= cl_image_tag 'yp95sgxwqvengyn1fwic', height:500, width: 500, :crop=>"scale" %>
+        <% end %>
+        <%= f.input :photos, as: :file, label: 'Update photos', input_html: { multiple: true } %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

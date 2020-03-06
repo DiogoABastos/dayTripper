@@ -1,0 +1,25 @@
+.review-cards {
+  position: absolute;
+  transform: translate(150%, -150%);
+  transition: transform 1s ease;
+
+}
+
+.review-cards-active {
+  transform: translate(10%, -105%);
+}
+
+.review-card {
+  background-color: white;
+  padding: 16px 35px;
+  width: 500px;
+  box-shadow: 0px 3px 5px grey;
+  border-radius: 2px;
+  margin: 38px;
+}
+
+.review-cards-five {
+  height: 300px;
+  overflow: auto;
+  overflow-wrap: break-word;
+}

@@ -1,0 +1,7 @@
+<div class="review-card">
+  <h5><%= review.user.username.capitalize %></h5>
+  <p><%= time_ago_in_words(review.created_at) %></p>
+  <p><%= stars(review.rating) %></p>
+  <p><%= review.description %></p>
+</div>
+

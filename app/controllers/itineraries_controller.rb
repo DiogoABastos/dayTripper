@@ -2,7 +2,16 @@ class ItinerariesController < ApplicationController
   before_action :find_itinerary, only: [:show, :edit, :update, :destroy]
 
   def index
-    @itineraries = policy_scope(Itinerary)
+    if params[:query].present?
+      sql_query = " \
+        itineraries.name ILIKE :query \
+        OR locations.name ILIKE :query \
+        OR locations.address ILIKE :query \
+      "
+      @itineraries = policy_scope(Itinerary).joins(:locations).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @itineraries = policy_scope(Itinerary)
+    end
   end
 
   def show
@@ -16,6 +25,9 @@ class ItinerariesController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { location: location })
       }
     end
+
+    @review = Review.new
+    @reviews = @itinerary.reviews
   end
 
   def new
@@ -53,7 +65,7 @@ class ItinerariesController < ApplicationController
   private
 
   def itinerary_params
-    params.require(:itinerary).permit(:name, :description)
+    params.require(:itinerary).permit(:name, :description, photos: [])
   end
 
   def find_itinerary

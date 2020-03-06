@@ -1,0 +1,5 @@
+<%= simple_form_for([itinerary, review], remote: true) do |f| %>
+  <%= f.input :description %>
+  <%= f.input :rating %>
+  <%= f.button :submit, 'Add Review', class: 'btn-location-add review-form-btn' %>
+<% end %>
