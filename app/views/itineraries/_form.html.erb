@@ -5,7 +5,7 @@
         <%= f.input :name, label: "Name your Itinerary", placeholder: "Name your itinerary like 'The best street art of Lisbon'", wrapper_html: {class: 'label'} %>
         <%= f.input :description, label: "Add a description", placeholder: "Add a description to explain your itinerary to friends, family and the Daytripper communty :)", wrapper_html: {class: 'label'} %>
         <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Add a photo", wrapper_html: {class: 'label'} %>
-        <%= f.button :submit, 'Add Locations', class: 'btn btn-primary' %>
+        <%= f.button :submit, 'Add Locations', class: 'btn btn-primary new-itinerary-btn' %>
       <% end %>
       <div>
        <%= image_tag("colorful-build.jpg", height: '500', width: '400',  class: 'new-itinerary-image')%>
