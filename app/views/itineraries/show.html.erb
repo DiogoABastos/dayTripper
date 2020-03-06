@@ -1,11 +1,12 @@
-
 <div class="row">
   <div class="col-4 window-view">
    <div class="itinerary-details">
       <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
       <div class="d-flex align-items-center">
-        <%=link_to googlemap(@itinerary), target: "_blank", class: 'btn-google-maps' do %>
-          <h2>Open on <i class="fab fa-google"></i>oogle Maps</h2>
+        <% if @itinerary.locations.exists? %>
+          <%=link_to googlemap(@itinerary), target: "_blank", class: 'btn-google-maps' do %>
+            <h2>Open on <i class="fab fa-google"></i>oogle Maps</h2>
+          <% end %>
         <% end %>
       </div>
       <div class="itinerary-icons">
