@@ -2,6 +2,9 @@
   <div class="col-4 window-view">
    <div class="itinerary-details">
       <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
+     
+      <a id="review-button"><i class="far fa-smile"></i></a>
+     
       <div class="d-flex align-items-center">
         <% if @itinerary.locations.exists? %>
           <%=link_to googlemap(@itinerary), target: "_blank", class: 'btn-google-maps' do %>
@@ -53,7 +56,7 @@
 
     <div id="review-show" class="review-cards">
       <h4><%= @itinerary.name.capitalize %> Reviews</h4>
-      <h5><%= total_rating(@itinerary.reviews) %></h5>
+        <%= render 'review_rating', itinerary: @itinerary %>
       <div class="review-cards-five">
         <% @reviews.last(5).reverse.each do |review| %>
           <%= render 'review', review: review %>

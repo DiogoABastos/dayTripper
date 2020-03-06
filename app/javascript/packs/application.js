@@ -53,10 +53,17 @@ if (reviewButton && reviewForm && theMap && reviewCards) {
 }
 
 const reviewFormBtn = document.querySelector('.review-form-btn');
+const rreviewCards = document.querySelector('.review-cards');
+const reviewRating = document.querySelector('.review-rating');
 
-if (reviewFormBtn && reviewCards) {
-  reviewFormBtn.addEventListener('click', (e) => {
-    Array.from(Array.from(reviewCards.children)[reviewCards.children.length - 1].children)[Array.from(Array.from(reviewCards.children)[reviewCards.children.length - 1].children).length - 1].remove();
-  });
-}
+  if (reviewFormBtn && rreviewCards && reviewRating) {
+    reviewFormBtn.addEventListener('click', (e) => {
+      if (Array.from(Array.from(rreviewCards.children)[rreviewCards.children.length - 1].children).length >= 5) {
+        Array.from(Array.from(rreviewCards.children)[rreviewCards.children.length - 1].children)[Array.from(Array.from(rreviewCards.children)[rreviewCards.children.length - 1].children).length - 1].remove();
+      }
+
+      reviewRating.lastElementChild.remove();
+    });
+  }
+
 
