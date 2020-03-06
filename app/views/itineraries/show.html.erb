@@ -1,10 +1,12 @@
 <div class="row">
-  <div class="col-4 window-view">
+  <div class="col-5 window-view">
    <div class="itinerary-details">
       <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
-     
-      <a id="review-button"><i class="far fa-smile"></i></a>
-     
+
+      <% if current_user %>
+        <a href="#" id="review-button"><i class="far fa-smile"></i>(Add Rating)</a>
+      <% end %>
+
       <div class="d-flex align-items-center">
         <% if @itinerary.locations.exists? %>
           <%=link_to googlemap(@itinerary), target: "_blank", class: 'btn-google-maps' do %>
@@ -42,7 +44,7 @@
     </div>
   </div>
 
-  <div class="col-8 p-0">
+  <div class="col-7 p-0">
     <div
     id="map" class="itinerary-locations-map the-map"
     style="width: 100%;

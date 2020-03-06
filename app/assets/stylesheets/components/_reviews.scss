@@ -1,18 +1,23 @@
 .review-cards {
-  transform: translate(120%, -15%);
+  transform: translate(100%, -150%);
   transition: transform 1s ease;
-  overflow: auto;
 }
 
 .review-cards-active {
-  transform: translate(14%, -53%);
+  transform: translate(10%, -160%);
 }
 
 .review-card {
   background-color: white;
   padding: 16px 35px;
-  width: 545px;
+  width: 500px;
   box-shadow: 0px 3px 5px grey;
   border-radius: 2px;
   margin: 38px;
+}
+
+.review-cards-five {
+  height: 320px;
+  overflow: auto;
+  overflow-wrap: break-word;
 }
