@@ -2,23 +2,16 @@ class ItinerariesController < ApplicationController
   before_action :find_itinerary, only: [:show, :edit, :update, :destroy]
 
   def index
-    @itineraries = policy_scope(Itinerary)
-
-    # @markers = []
-
-    # @itineraries.each do |itinerary|
-
-    #   @locations = itinerary.locations
-
-    #   @marker = @locations.map do |location|
-    #     {
-    #       lat: location.latitude,
-    #       lng: location.longitude
-    #     }
-    #   end
-    #   @markers << @marker
-    #   @markers_hash =  @markers.flatten
-    # end
+    if params[:query].present?
+      sql_query = " \
+        itineraries.name ILIKE :query \
+        OR locations.name ILIKE :query \
+        OR locations.address ILIKE :query \
+      "
+      @itineraries = policy_scope(Itinerary).joins(:locations).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @itineraries = policy_scope(Itinerary)
+    end
   end
 
   def show

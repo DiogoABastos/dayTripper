@@ -1,7 +1,6 @@
 <h1 id="index-h1">Itineraries</h1>
-<% if policy(Itinerary).create? %>
-  <%= link_to 'New Itinerary', new_itinerary_path  %>
-<% end %>
+
+<%= render "shared/search" %>
 
 <div class="index-container">
   <div class="cards">
