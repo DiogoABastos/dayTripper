@@ -1,28 +1,3 @@
-.index-container {
-  // width: 600px;
-  // margin: 0 auto;
-  display: flex;
-  // justify-content: center;
-
-}
-
-.cards {
-  display: grid;
-  // grid-auto-rows: 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
-  // justify-items: center;
-  flex-grow: 1;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-// .map-index {
-//   height: 88vh !important;
-//   top: 56px !important;
-//   position: sticky !important;
-// }
-
 .card-trip {
   overflow: hidden;
   width: 300px;
@@ -32,7 +7,7 @@
 
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -54,8 +29,8 @@
 }
 
 .card-trip:hover {
-  -webkit-transform: scale(1.10, 1.10);
-  transform: scale(1.10, 1.10);
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
 }
 
 .card-trip:hover::after {
@@ -99,7 +74,6 @@
 }
 
 .ratings-clock {
-  // position: absolute;
   text-align: right;
 }
 

@@ -1,9 +1,17 @@
-
 <div class="row">
   <div class="col-4 window-view">
    <div class="itinerary-details">
       <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
+     
       <a id="review-button"><i class="far fa-smile"></i></a>
+     
+      <div class="d-flex align-items-center">
+        <% if @itinerary.locations.exists? %>
+          <%=link_to googlemap(@itinerary), target: "_blank", class: 'btn-google-maps' do %>
+            <h2>Open on <i class="fab fa-google"></i>oogle Maps</h2>
+          <% end %>
+        <% end %>
+      </div>
       <div class="itinerary-icons">
         <%= link_to itineraries_path do %>
           <i class="fas fa-arrow-circle-left"></i>
@@ -20,6 +28,8 @@
       <%= render 'location_form', itinerary: @itinerary, location: @location %>
     </div>
 
+
+
     <div id="location-cards">
       <% @itinerary.locations.each do |location| %>
         <%= link_to itinerary_location_path(@itinerary, location) do %>
@@ -31,6 +41,7 @@
       <% end %>
     </div>
   </div>
+
   <div class="col-8 p-0">
     <div
     id="map" class="itinerary-locations-map the-map"
