@@ -49,6 +49,11 @@ if (reviewButton && reviewForm && theMap && reviewCards) {
     reviewForm.classList.toggle('review-form-active');
     theMap.classList.toggle('the-map-active');
     reviewCards.classList.toggle('review-cards-active');
+    if (reviewButton.innerHTML === 'Show map') {
+      reviewButton.innerHTML = '<i class="far fa-smile"></i>(Add Rating)';
+    } else {
+      reviewButton.innerHTML = 'Show map';
+    }
   });
 }
 
@@ -63,6 +68,14 @@ const reviewRating = document.querySelector('.review-rating');
       }
 
       reviewRating.lastElementChild.remove();
+    });
+  }
+
+const locationBtn = document.querySelector('.location-button');
+
+  if (locationBtn) {
+    locationBtn.addEventListener('click', () => {
+      console.log('e');
     });
   }
 
