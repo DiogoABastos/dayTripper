@@ -43,7 +43,6 @@ module ApplicationHelper
   end
 
   def googlemap(itinerary)
-
     url_root = "https://www.google.com/maps/dir/?api=1&origin="
     origin_coordinates = ERB::Util.url_encode("#{itinerary.locations.first.latitude},#{itinerary.locations.first.longitude}")
     destination_prefix = "&destination="
