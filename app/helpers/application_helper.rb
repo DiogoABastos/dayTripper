@@ -8,7 +8,6 @@ module ApplicationHelper
     end
   end
 
-
   def duration(time)
     a, b = time.divmod(60)
     if b == 0

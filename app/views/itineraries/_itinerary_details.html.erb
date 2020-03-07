@@ -1,0 +1,25 @@
+
+  <%= rating(itinerary.reviews) %>
+
+
+    <div class="itinerary-user-details">
+      <%= cl_image_tag @itinerary.user.photo.key, width: 50, height: 50, radius: :max, gravity: :face%>
+      <%= @itinerary.user.username %>
+    </div>
+    <br>
+    <br>
+    <br>
+    <button class="btn btn-primary btn-message">Send Message</button>
+
+
+      <h1>Highlights</h1>
+      <ul class="details-itinerary">
+        <li>Trip Stops <%= @itinerary.locations.count %></li>
+        <li>Total Duration <%= duration(itinerary.duration) %></li>
+
+        <li>Trip Highlights</li>
+        <% @itinerary.locations.each do |location| %>
+            <li><%=location.category%></li>
+        <% end %>
+      </ul>
+

@@ -4,6 +4,8 @@
    <div class="itinerary-details">
       <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
 
+
+
       <% if current_user %>
         <a href="#" id="review-button"><i class="far fa-smile"></i>(Add Rating)</a>
       <% end %>
@@ -27,9 +29,14 @@
 
       </div>
     </div>
-    <div class="location-form" id="ajax-location-form">
-      <%= render 'location_form', itinerary: @itinerary, location: @location %>
-    </div>
+
+      <% if current_user.id == @itinerary.user_id %>
+        <div class="location-form" id="ajax-location-form">
+          <%= render 'location_form', itinerary: @itinerary, location: @location %>
+        </div>
+      <% else %>
+         <%= render 'itinerary_details', itinerary: @itinerary, location: @location %>
+      <% end %>
 
     <div id="location-cards">
       <% @itinerary.locations.each do |location| %>
