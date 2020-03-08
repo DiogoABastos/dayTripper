@@ -1,0 +1,29 @@
+<div class="icon-bar">
+  <a class="" href="#">
+    <%= link_to itineraries_path do %>
+      <i class="fas fa-arrow-circle-left"></i>
+    <% end %>
+  </a>
+  <a href="#" id="review-button">
+    <% if current_user %>
+    <i class="far fa-smile"></i>
+    <% end %>
+  </a>
+  <a href="#">
+    <% if policy(@itinerary).destroy? %>
+      <%= link_to @itinerary, method: :delete, data: { confirm: 'Are you sure?' } do%>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+    <% end %>
+  </a>
+  <a href="#">
+    <% if @itinerary.locations.exists? %>
+      <%=link_to googlemap(@itinerary), target: "_blank", class: 'btn-google-maps' do %>
+        <h2>Open on <i class="fab fa-google"></i>oogle Maps</h2>
+      <% end %>
+    <% end %>
+  </a>
+  <a href="#">
+    <i class="far fa-clone"></i>
+  </a>
+</div>

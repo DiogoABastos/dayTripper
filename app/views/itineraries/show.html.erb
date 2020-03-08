@@ -1,51 +1,38 @@
 <div class="show-page">
-<div class="row">
-  <div class="col-5 window-view">
-   <div class="itinerary-details">
-      <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
+  <div class="row">
+    <div class="col-5 window-view">
+      <% if @itinerary.photos.attached?%>
 
+        <div class="itinerary-details d-flex" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @itinerary.photos.last.key, crop: :fill %>')">
 
-
-      <% if current_user %>
-        <a href="#" id="review-button"><i class="far fa-smile"></i>(Add Rating)</a>
-      <% end %>
-
-      <div class="d-flex align-items-center">
-        <% if @itinerary.locations.exists? %>
-          <%=link_to googlemap(@itinerary), target: "_blank", class: 'btn-google-maps' do %>
-            <h2>Open on <i class="fab fa-google"></i>oogle Maps</h2>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="itinerary-icons">
-        <%= link_to itineraries_path do %>
-          <i class="fas fa-arrow-circle-left"></i>
-        <% end %>
-        <% if policy(@itinerary).destroy? %>
-          <%= link_to @itinerary, method: :delete, data: { confirm: 'Are you sure?' } do%>
-            <i class="far fa-trash-alt"></i>
-          <% end %>
-        <% end %>
-
-      </div>
-    </div>
-
-      <% if current_user.id == @itinerary.user_id %>
-        <div class="location-form" id="ajax-location-form">
-          <%= render 'location_form', itinerary: @itinerary, location: @location %>
+          <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
+          <%= rating(@itinerary.reviews) %>
         </div>
       <% else %>
-         <%= render 'itinerary_details', itinerary: @itinerary, location: @location %>
+        <div class="itinerary-details d-flex">
+          <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
+          <%= rating(@itinerary.reviews) %>
+        </div>
       <% end %>
 
+    <% if !user_signed_in? || current_user.id != @itinerary.user_id %>
+      <div>
+        <%= render 'itinerary_details', itinerary: @itinerary, location: @location %>
+      </div>
+      <% else %>
+      <div class="location-form" id="ajax-location-form">
+        <%= render 'location_form', itinerary: @itinerary, location: @location %>
+      </div>
+    <% end %>
+
+    <%= render 'horizontal_navbar' %>
+  <br>
     <div id="location-cards">
       <% @itinerary.locations.each do |location| %>
         <%= link_to itinerary_location_path(@itinerary, location) do %>
 
         <%= render 'location', itinerary: @itinerary, location: location %>
-
         <% end %>
-
       <% end %>
     </div>
   </div>
@@ -60,7 +47,8 @@
     </div>
     <div class="review-form" id="ajax-review-form">
       <%= render 'review_form', itinerary: @itinerary, review: @review %>
-    </div><div id="review-show" class="review-cards">
+    </div>
+    <div id="review-show" class="review-cards">
       <h4><%= @itinerary.name.capitalize %> Reviews</h4>
         <%= render 'review_rating', itinerary: @itinerary %>
       <div class="review-cards-five">
@@ -70,7 +58,6 @@
       </div>
     </div>
   </div>
-</div>
 </div>
 
 

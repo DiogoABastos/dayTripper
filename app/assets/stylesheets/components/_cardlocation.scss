@@ -16,14 +16,17 @@
 
 .card-location {
   overflow: hidden;
-  height: 92px;
+  height: 105px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   margin: 0px 20px 10px 20px;
+  img{
+  height: 103px;
+  border-radius: 2px;
+  }
 }
-
 
 .card-location h2 {
   font-size: 14px;
