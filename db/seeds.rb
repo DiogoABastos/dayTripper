@@ -52,9 +52,11 @@ abana.user = s
 abana.locations << [s_jorge, m_moniz, f_ladra]
 abana.save!
 
-beach = Itinerary.new({ name: 'Beach trip cascais', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
+beach = Itinerary.new({ name: 'Beach trip Cascais', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = m
 beach.locations << [boca_inferno, guincho, marina_cascais]
+guincho_photo = URI.open("https://www.golisbon.com/images/images/guincho-beach.jpg")
+beach.photo.attach(io: guincho_photo, filename: 'guincho.jpg', content_type: 'image/jpg')
 beach.save!
 
 
