@@ -1,6 +1,6 @@
 <div class="card-location" data-location-id="<%= location.id %>">
   <% if location.photos.attached?%>
-    <%= cl_image_tag location.photos.last.key, height:100, width: 100, :crop=>"scale" %>
+    <%= cl_image_tag location.photos.last.key, height:100, width: 100, :crop=>"scale"%>
   <% else%>
     <%= cl_image_tag 'yp95sgxwqvengyn1fwic', height:100, width: 100, :crop=>"scale" %>
   <% end %>

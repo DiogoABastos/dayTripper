@@ -1,0 +1,20 @@
+.icon-bar {
+  margin-left: 10px;
+    background-color: #555;
+    // overflow: auto;
+    height: 5%;
+    margin: auto;
+}
+
+.icon-bar a {
+    float: left;
+    width: 20%;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+}
+
+.icon-bar a:hover {
+    background-color: #000;
+}
