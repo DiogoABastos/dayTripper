@@ -50,7 +50,7 @@ if (reviewButton && reviewForm && theMap && reviewCards) {
     theMap.classList.toggle('the-map-active');
     reviewCards.classList.toggle('review-cards-active');
     if (reviewButton.innerHTML === 'Show map') {
-      reviewButton.innerHTML = '<i class="far fa-smile"></i>(Add Rating)';
+      reviewButton.innerHTML = 'Add Rating';
     } else {
       reviewButton.innerHTML = 'Show map';
     }
