@@ -1,19 +1,15 @@
 <div class="show-page">
   <div class="row">
     <div class="col-5 window-view">
-      <% if @itinerary.photos.attached?%>
 
-        <div class="itinerary-details d-flex" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @itinerary.photos.last.key, crop: :fill %>')">
-
-          <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
-          <%= rating(@itinerary.reviews) %>
-        </div>
-      <% else %>
         <div class="itinerary-details d-flex">
           <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
-          <%= rating(@itinerary.reviews) %>
+          <a href="#" id="review-button">
+            <% if current_user %>
+             <%= rating(@itinerary.reviews) %>
+            <% end %>
+          </a>
         </div>
-      <% end %>
 
     <% if !user_signed_in? || current_user.id != @itinerary.user_id %>
       <div>
