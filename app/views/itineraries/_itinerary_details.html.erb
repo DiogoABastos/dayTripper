@@ -1,23 +1,22 @@
-<div class="itinerary-user-details">
-      <% if @itinerary.user.photo.attached? %>
-        <%= cl_image_tag @itinerary.user.photo.key, width: 50, height: 50, radius: :max, gravity: :face%>
-      <% else %>
-        <i style="font-size: 32px" class="fas fa-user-circle"></i>
-      <% end %>
-      <%= @itinerary.user.username %>
-    </div>
-    <br>
-    <br>
-    <br>
+<div class="trip-overview">
+  <h1>Trip Overview</h1>
+  <%= @itinerary.description %>
+  <div class='d-flex align-items-center'>
+    <i class="fas fa-map-marker-alt"></i>
+    <h2 class="detail-header">Total Stops: <%= @itinerary.locations.count %> </h2>
+  </div>
 
-      <h1>Highlights</h1>
-      <ul class="details-itinerary">
-        <li>Trip Stops <%= @itinerary.locations.count %></li>
-        <li>Total Duration <%= duration(itinerary.duration) %></li>
-
-        <li>Trip Highlights</li>
-        <% @itinerary.locations.each do |location| %>
-            <li><%=location.tag_list%></li>
-        <% end %>
-      </ul>
-
+  <div class="d-flex align-items-center">
+    <i class="far fa-clock"></i>
+    <h2 class="detail-header">Total Trip Time: <%= duration(itinerary.duration) %>  </h2>
+  </div>
+  <div class="d-flex align-items-center">
+    <i class="fas fa-tag"></i>
+    <ul class="details-itinerary">
+      <li>Trip Tags: </li>
+      <% @itinerary.locations.each do |location| %>
+      <li><%=location.tag_list%></li>
+    <% end %>
+    </ul>
+  </div>
+</div>

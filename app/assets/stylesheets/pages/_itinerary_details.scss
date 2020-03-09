@@ -1,6 +1,13 @@
+ .details-itinerary{
+   margin: 0px;
+  padding: 0px;
+ }
+
+
 .details-itinerary li {
   list-style: none;
-  display: block;
+  display: inline;
+  margin: 5px;
 }
 
 .btn-message{
@@ -17,3 +24,19 @@
   float: right;
 }
 
+.trip-overview{
+    margin: 0px 5px 0px 5px;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: white;
+  h1 {
+    font-size: 18px;
+    font-style: italic;
+
+  }
+
+  h2{
+    font-size: 16px;
+    margin: 0px;
+  }
+}
