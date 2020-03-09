@@ -8,7 +8,7 @@ class ItinerariesController < ApplicationController
         OR locations.name ILIKE :query \
         OR locations.address ILIKE :query \
       "
-      @itineraries = policy_scope(Itinerary).joins(:locations).where(sql_query, query: "%#{params[:query]}%")
+      @itineraries = policy_scope(Itinerary).joins(:locations).where(sql_query, query: "%#{params[:query]}%").uniq
     else
       @itineraries = policy_scope(Itinerary)
     end
