@@ -7,9 +7,9 @@
           <%= f.input :name %>
           <%= f.input :address %>
           <%= f.input :description %>
-          <%= f.input :tag_list, label: "Add tags", hint: "Add your tags, separated by commas" %>
+          <%= f.input :tag_list, label: "Update tags", hint: "Add your tags, separated by commas" %>
           <%= f.input :duration %>
-          <%= f.button :submit, 'Edit Itinerary', class: 'btn btn-outline-success' %>
+          <%= f.button :submit, 'Update Itinerary', class: 'btn btn-outline-success' %>
       </div>
       <div>
         <% if location.photos.attached?%>
