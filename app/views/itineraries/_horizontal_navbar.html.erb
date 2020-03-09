@@ -1,62 +1,58 @@
 <div class="icon-bar pb-1">
-
-  <div>
-  <a class="" href="#">
-
-    <%= link_to itineraries_path do %>
-     <h3>Go Back</h3>
-      <i class="fas fa-arrow-circle-left horiz-icon"></i>
-    <% end %>
-  </a>
-</div>
-
-<div class="fill-color">
-  <a href="#">
-    <% if @itinerary.locations.exists? %>
-      <%=link_to googlemap(@itinerary), target: "_blank", class: 'btn-google-maps' do %>
-        <h3>Google Maps</h3>
-        <i class="fab fa-google horiz-icon"></i>
+  <div class="fill-color">
+    <a class="" href="#">
+      <%= link_to itineraries_path do %>
+       <h3>Go Back</h3>
+        <i class="fas fa-arrow-circle-left horiz-icon"></i>
       <% end %>
-    <% end %>
-  </a>
-</div>
-
-<div class="fill-color">
-  <a href="#">
-    <h3>Photos</h3>
-    <i class="fas fa-camera horiz-icon"></i>
-  </a>
-</div>
-
-<div class="fill-color">
-  <a href="#">
-    <h3>Share</h3>
-    <i class="fas fa-share horiz-icon"></i>
-  </a>
-
-</div>
-
-<div class="fill-color">
-  <a href="#">
-    <%= link_to clone_itinerary_path(@itinerary), method: :post do %>
-      <h3>Copy</h3>
-      <i class="far fa-clone horiz-icon"></i>
-    <% end %>
-  </a>
-</div>
-
-<div class="fill-color">
-
-  <a href="#">
-    <% if policy(@itinerary).destroy? %>
-      <%= link_to @itinerary, method: :delete, data: { confirm: 'Are you sure?' } do%>
-        <h3>Delete</h3>
-        <i class="far fa-trash-alt horiz-icon"></i>
-      <% end %>
-    <% end %>
-  </a>
+    </a>
   </div>
 
+  <div class="fill-color">
+    <a href="#">
+      <% if @itinerary.locations.exists? %>
+        <%=link_to googlemap(@itinerary), target: "_blank", class: 'btn-google-maps' do %>
+          <h3>Google Maps</h3>
+          <i class="fab fa-google horiz-icon"></i>
+        <% end %>
+      <% end %>
+    </a>
+  </div>
+
+  <div class="fill-color">
+    <a href="#">
+      <h3>Photos</h3>
+      <i class="fas fa-camera horiz-icon"></i>
+    </a>
+  </div>
+
+  <div class="fill-color hide-itinerary">
+    <a href="#">
+      <h3>Share</h3>
+      <i class="fas fa-share horiz-icon"></i>
+    </a>
+
+  </div>
+
+  <div class="fill-color">
+    <a href="#">
+      <%= link_to clone_itinerary_path(@itinerary), method: :post do %>
+        <h3>Copy</h3>
+        <i class="far fa-clone horiz-icon"></i>
+      <% end %>
+    </a>
+  </div>
+
+  <div class="fill-color">
+    <a href="#">
+      <% if policy(@itinerary).destroy? %>
+        <%= link_to @itinerary, method: :delete, data: { confirm: 'Are you sure?' } do%>
+          <h3>Delete</h3>
+          <i class="far fa-trash-alt horiz-icon"></i>
+        <% end %>
+      <% end %>
+    </a>
+  </div>
 </div>
 
 

@@ -79,4 +79,18 @@ const locationBtn = document.querySelector('.location-button');
     });
   }
 
+// const hideItinerary = document.querySelector('hide-itinerary');
+// const revealItinerary = document.querySelector('itineray-hidden');
+
+//   if(hideItinerary) {
+//     hideItinerary.addEventListener('click', (e) => {
+//       hideItinerary.classList.toggle('itinerary-hidden');
+//     });
+
+//   if(revealItinerary) {
+//     revealItinerary.addEventListener('click', (e) =>{
+//     revealItinerary.classList.toggle('hide-itinerary');
+//     });
+
+
 
