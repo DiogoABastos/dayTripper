@@ -24,6 +24,8 @@
     <% end %>
   </a>
   <a href="#">
-    <i class="far fa-clone"></i>
+    <%= link_to clone_itinerary_path(@itinerary), method: :post do %>
+      <i class="far fa-clone"></i>
+    <% end %>
   </a>
 </div>
