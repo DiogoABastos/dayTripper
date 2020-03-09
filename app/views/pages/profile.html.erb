@@ -1,48 +1,79 @@
-<div class="banner-profile" class="background-img" style="background-image: url(https://images.unsplash.com/photo-1464278500780-e60893407e29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1066&q=80);">
-    <div class="heading-wrapper">
+<!-- <div class="banner-profile" style="background-image: url(https://images.unsplash.com/photo-1464278500780-e60893407e29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1066&q=80);"> -->
+<div class="">
+  <div class="container" style="padding-top:20px;" >
       <div class="row">
-        <div class="profile-img">
-            <% if @current_user.photo.attached? %>
-             <%= cl_image_tag @current_user.photo.key, :crop=>"scale", class: 'show-image' %>
-            <% else %>
-              <%= simple_form_for [@user], url: profile_path do |f| %>
-                <%= f.input :photo, as: :file, label: 'Update photos' %>
-                <%= f.button :submit, 'Add Photo', class: 'btn btn-outline-success' %>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-4">
-
-            <div class="info">
-              <div style="font-size: 2.0rem;">
-              <i class="icon far fa-user"></i>
-            </div>
-              <div class="right-area">
-                <h5>@stevespiders</h5>
-                 <h5>Stefan Sideris</h5>
-              </div><!-- right-area -->
-            </div><!-- info -->
-          </div><!-- col-sm-4 -->
-          <div class="col-sm-6 col-md-6 col-lg-4">
-            <div class="info">
-              <div style="font-size: 2.0rem;">
-              <i class="icon fas fa-qrcode"></i>
+          <div class="col-6 mx-auto">
+              <div class="card" style="box-shadow: 0px 1px 8px rgba(0,0,0,0.7);">
+                <div class="card-body">
+                  <div class="row">
+                      <div class="col-sm-6 col-md-4">
+                          <% if @current_user.photo.attached? %>
+                            <%= cl_image_tag @current_user.photo.key, width: 250, crop: "scale", class: 'rounded img-fluid' %>
+                          <% else %>
+                          <%= simple_form_for [@user], url: profile_path do |f| %>
+                          <%= f.input :photo, as: :file, label: 'Update photos' %>
+                          <%= f.button :submit, 'Add Photo', class: 'btn btn-outline-success btn-lg' %>
+                          <% end %>
+                          <% end %>
+                          </div>
+                          <div class="col-sm-6 col-md-8">
+                          <h4>Stefan Sideris</h4>
+                          <small><cite title="San Francisco, USA">San Francisco, USA <i>
+                          </i></cite></small>
+                          <p>
+                              <a style="font-style: italic; font-size: smaller;">email@example.com</a>
+                              <br />
+                              <a style="font-style: italic; font-size: smaller;" href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
+                              <br />
+                              <a style="font-style: italic; font-size: smaller;">June 02, 1988</a>
+                          </p>
+                          <div class="dropdown">
+                          <button class="btn btn-success dropdown-toggle btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            SOCIAL
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Instagram</a>
+                            <a class="dropdown-item" href="#">Facebook</a>
+                            <a class="dropdown-item" href="#">Twitter</a>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                  </div>
               </div>
-              <div class="right-area">
-                <h5> 34 </h5>
-                <h6>M</h6>
-              </div><!-- right-area -->
-
-
-          </div><!-- col-sm-4 -->
-          <div class="col-sm-6 col-md-6 col-lg-4">
-
-              <div class="right-area">
-             <!--    <h5>@current_user.interests</h5> -->
-              </div><!-- right-area -->
-            </div><!-- info -->
-          </div><!-- col-sm-4 -->
+          </div>
       </div>
-    </div>
-
+  </div>
 </div>
+<h1 id="index-h1">Itineraries</h1>
+<%= render "shared/search" %>
+<div class="container" style="margin-bottom: 50px;">
+  <div class="row">
+  <div class="card-deck">
+    <% @itineraries.each do |itinerary| %>
+      <div class="col-12 col-lg-3">
+        <div class="card-trip card-trip-style">
+          <div class="index-click-map" data-markers="<%= itinerary.markers_method.to_json %>">
+            <%= image_tag "bridge.jpg", alt: "alttext" %>
+              </div>
+              <div class="card-trip-infos">
+              <div class="card-left">
+              <h2 class="pb-1"><%= itinerary.name %></h2>
+              <p>Short description here!</p>
+
+              </div>
+              <div class="ratings-clock">
+              <p class="pb-1"><%= rating(itinerary.reviews) %></p>
+              <p class="pr-1"><i class="far fa-clock p-1"></i><%=duration(itinerary.duration) %></p>
+            </div>
+          </div>
+          <div class="cta">
+          <%= link_to "Go on Itinerary", itinerary, class:"btn btn-primary btn-sm card-btn" %>
+          </div>
+        </div>
+       </div>
+    <% end %>
+  </div>
+  </div>
+</div>
+

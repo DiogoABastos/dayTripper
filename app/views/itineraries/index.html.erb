@@ -5,7 +5,6 @@
 <div class="index-container">
   <div class="cards">
     <% @itineraries.each do |itinerary| %>
-
         <div class="card-trip">
           <div class="index-click-map" data-markers="<%= itinerary.markers_method.to_json %>">
             <%= photo itinerary %>
@@ -24,7 +23,6 @@
             </div>
           </div>
         </div>
-
     <% end %>
   </div>
   <div
