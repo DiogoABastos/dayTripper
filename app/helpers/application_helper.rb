@@ -66,4 +66,12 @@ module ApplicationHelper
     google_map = "#{url_root}#{origin_coordinates}#{destination_prefix}#{destination_coordinates}#{travel_mode}#{waypoints}"
     return google_map
   end
+
+  def photo(itinerary)
+    if itinerary.photo.attached?
+      cl_image_tag itinerary.photo.key, height: 200, width: 300, crop: :fill
+    else
+      image_tag "bridge.jpg", alt: "alttext"
+    end
+  end
 end
