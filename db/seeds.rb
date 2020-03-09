@@ -20,13 +20,31 @@ d = User.create!({ email: 'd@gmail.com', password: 123456, username: 'megabebe' 
 g = User.create!({ email: 'g@gmail.com', password: 123456, username: 'gz3000' })
 
 puts 'creating 6 locations'
-s_jorge = Location.create!({ name: 'São Jorge', address: 'Largo de Santa Cruz do Castelo, Santa Maria Maior, Área Metropolitana de Lisboa, Portugal', description: 'Very nice castle and view over the city', category: 'Castle', duration: 150 })
-m_moniz = Location.create!({ name: 'Martim Moniz', address: 'Martim Moniz', description: 'Cultural extravaganza', category: 'Plaza', duration: 30 })
-f_ladra = Location.create!({ name: 'Feira da ladra', address: 'Feira da ladra', description: 'Awsome market with stolen goods. You can also sell your own.', category: 'Market', duration: 60 })
+s_jorge = Location.new({ name: 'São Jorge', address: 'Largo de Santa Cruz do Castelo, Santa Maria Maior, Área Metropolitana de Lisboa, Portugal', description: 'Very nice castle and view over the city', duration: 150 })
+s_jorge.tag_list.add("Castle")
+s_jorge.save!
 
-boca_inferno = Location.create!({ name: 'Boca do Inferno', address: 'Boca do Inferno', description: 'View over the ridges to the depths of hell', category: 'Landscape', duration: 60 })
-guincho = Location.create!({ name: 'Praia do Guincho', address: 'Praia do Guincho', description: 'Very long beach full of sexy people', category: 'Beach', duration: 300 })
-marina_cascais = Location.create!({ name: 'Marina de Cascais', address: 'Marina de Cascais', description: 'A spot with places to eat with a nice view to the ocean. Great to have a beer and chill.', category: 'Marina', duration: 120 })
+m_moniz = Location.new({ name: 'Martim Moniz', address: 'Martim Moniz', description: 'Cultural extravaganza', duration: 30 })
+m_moniz.tag_list.add("Cultural")
+m_moniz.save!
+
+f_ladra = Location.new({ name: 'Feira da ladra', address: 'Feira da ladra', description: 'Awsome market with stolen goods. You can also sell your own.', duration: 60 })
+f_ladra.tag_list.add("Market")
+f_ladra.save!
+
+
+boca_inferno = Location.new({ name: 'Boca do Inferno', address: 'Boca do Inferno', description: 'View over the ridges to the depths of hell', duration: 60 })
+boca_inferno.tag_list.add("Nature")
+boca_inferno.save!
+
+guincho = Location.new({ name: 'Praia do Guincho', address: 'Praia do Guincho', description: 'Very long beach full of sexy people', duration: 300 })
+guincho.tag_list.add("Beach")
+guincho.save!
+
+marina_cascais = Location.new({ name: 'Marina de Cascais', address: 'Marina de Cascais', description: 'A spot with places to eat with a nice view to the ocean. Great to have a beer and chill.', duration: 120 })
+marina_cascais.tag_list.add("Marina")
+marina_cascais.save!
+
 
 puts 'creating a bunch of itineraries'
 abana = Itinerary.new({ name: 'Lisbon center', description: "Really nice views with a foreign aroma of spices", duration: 300 })
