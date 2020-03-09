@@ -31,7 +31,7 @@ const fitMapToMarkers = (map, markers) => {
       }
     }
   );
-  map.fitBounds(bounds, { padding: 70, maxZoom: 10, duration: 0 });
+  map.fitBounds(bounds, { padding: 70, maxZoom: 13, duration: 0 });
 };
 
 const initMapbox = () => {
