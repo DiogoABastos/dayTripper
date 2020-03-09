@@ -16,8 +16,8 @@
         <li>Total Duration <%= duration(itinerary.duration) %></li>
 
         <li>Trip Highlights</li>
-       <!--  <% @itinerary.locations.each do |location| %>
-            <li><%#=location.category%></li>
-        <% end %> -->
+        <% @itinerary.locations.each do |location| %>
+            <li><%=location.tag_list%></li>
+        <% end %>
       </ul>
 
