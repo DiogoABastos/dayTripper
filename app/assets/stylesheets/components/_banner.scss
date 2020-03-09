@@ -20,7 +20,7 @@ h1 {
   font-size: 64px;
   font-weight: bold;
   margin-bottom: 35px;
-  color: white;
+  color: $_light_orange;
   font-family: 'Gloria Hallelujah', ;
   text-align: center;
   text-decoration: underline;
@@ -36,10 +36,10 @@ h1 {
 .home-video-wrapper {
   h2 {
     font-size: 48px;
-    color: white;
+    color: $_cream;
     font-weight: bold;
     text-align: center;
-    background-color: rgba(105, 143, 176, 0.3);
+    // background-color: rgba(105, 143, 176, 0.3);
     padding: 5px;
   }
 }
@@ -57,12 +57,13 @@ h1 {
     width: 300px;
     border-radius: 5px;
     box-shadow: 2px;
+    background-color: $_aqua;
   }
   h3 {
     margin: 100px 15px 0px 15px;
     font-size: 48px;
-    color: white;
-    font-weight: bold;
+    color: $_cream;
+    font-weight: bolder;
     text-align: center;
 
     }
