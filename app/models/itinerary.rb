@@ -24,6 +24,7 @@ class Itinerary < ApplicationRecord
     attr = attr.except("id", "user_id", "created_at", "updated_at")
     new_itinerary = Itinerary.new(attr)
     new_itinerary.user = user
+    new_itinerary.name = "**COPY OF " + new_itinerary.name + "**"
     new_itinerary.save
 
     self.locations.each do |loc|
