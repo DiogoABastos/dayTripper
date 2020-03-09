@@ -62,6 +62,13 @@ class ItinerariesController < ApplicationController
     redirect_to itineraries_path
   end
 
+  def clone
+    @itinerary = Itinerary.find(params[:id])
+    authorize @itinerary
+    @new_itinerary = @itinerary.clone_with_locations(current_user)
+    redirect_to itinerary_path(@new_itinerary), notice: "Itinerary Cloned!"
+  end
+
   private
 
   def itinerary_params

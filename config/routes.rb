@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :itineraries do
     resources :locations
     resources :reviews, only: [:new, :create]
+    member do
+      post 'clone', to: "itineraries#clone"
+    end
   end
 
 end

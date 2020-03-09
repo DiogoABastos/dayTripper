@@ -21,6 +21,10 @@ class ItineraryPolicy < ApplicationPolicy
     user_owner
   end
 
+  def clone?
+    true
+  end
+
   private
 
   def user_owner
