@@ -1,18 +1,21 @@
 
-<%if @itinerary.locations.exists? & @location.photos.attached? %>
-<% end %>
+<%if @itinerary.locations.exists?%>
 <div class="carousel-photo">
   <div id="carouselExampleSlidesOnly" class="carousel slide " data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
+        <% if @locations.first.photos.attached? %>
         <%= cl_image_tag @locations.first.photos.first.key, :height=> 0.60 , :width => 0.70, :crop=>"fill", class: "d-block w-100", alt: 'First Slide' %>
       </div>
       <div><%= @locations.first.description %>@</div>
+       <% end %>
       <% @locations[1..-1].each do |location| %>
         <div class="carousel-item">
+          <% if location.photos.attached? %>
             <%= cl_image_tag location.photos.first.key, :height=> 0.60 , :width => 0.70, :crop=>"fill", class: "d-block w-100" %>
         </div>
         <div><%= @location.description %>@</div>
+          <% end %>
       <% end %>
     </div>
   </div>
@@ -26,5 +29,5 @@
     </a>
   </div>
 </div>
-
+<% end %>
 
