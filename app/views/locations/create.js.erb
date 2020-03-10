@@ -13,12 +13,4 @@ function addLocation(locationHTML) {
 <% else %>
   addLocation('<%= j render "itineraries/location", itinerary: @itinerary, location: @location %>');
   refreshForm('<%= j render "itineraries/location_form", itinerary: @itinerary, location: Location.new %>');
-
-  var locationBtn = document.querySelector('.location-button');
-
-  if (locationBtn) {
-    locationBtn.addEventListener('click', () => {
-      console.log('e');
-    });
-  }
 <% end %>
