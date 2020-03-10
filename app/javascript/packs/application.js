@@ -40,6 +40,7 @@ if (add) {
 }
 
 const reviewButton = document.getElementById('review-button');
+let content = reviewButton.innerHTML;
 const reviewForm = document.querySelector('.review-form');
 const theMap = document.querySelector('.the-map');
 const reviewCards = document.querySelector('.review-cards');
@@ -50,7 +51,7 @@ if (reviewButton && reviewForm && theMap && reviewCards) {
     theMap.classList.toggle('the-map-active');
     reviewCards.classList.toggle('review-cards-active');
     if (reviewButton.innerHTML === 'Show map') {
-      reviewButton.innerHTML = 'Add Rating';
+      reviewButton.innerHTML = content;
     } else {
       reviewButton.innerHTML = 'Show map';
     }
@@ -68,6 +69,8 @@ const reviewRating = document.querySelector('.review-rating');
       }
 
       reviewRating.lastElementChild.remove();
+
+
     });
   }
 

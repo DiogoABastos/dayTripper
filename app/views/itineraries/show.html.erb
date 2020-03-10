@@ -5,9 +5,7 @@
           <div class='d-flex align-items-center p-0 m-0'>
             <h2 id="itinerary-name"><%= @itinerary.name %> </h2>
             <a href="#" id="review-button">
-              <% if current_user %>
-               <%= rating(@itinerary.reviews) %>
-              <% end %>
+              <%= render 'review_button', itinerary: @itinerary %>
             </a>
           </div>
           <div class="d-flex align-items-center user-details-show">
@@ -59,7 +57,9 @@
     </div>
     <div id="review-show" class="review-cards">
       <h4><%= @itinerary.name.capitalize %> Reviews</h4>
+      <div class="reviews-rating">
         <%= render 'review_rating', itinerary: @itinerary %>
+      </div>
       <div class="review-cards-five">
         <% @reviews.last(5).reverse.each do |review| %>
           <%= render 'review', review: review %>
