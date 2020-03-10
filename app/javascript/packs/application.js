@@ -9,7 +9,10 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
-initMapbox();
+if (!document.body.classList.contains('itineraries') && !document.body.classList.contains('show')) {
+  initMapbox();
+}
+
 
 initAutocomplete();
 
@@ -40,7 +43,10 @@ if (add) {
 }
 
 const reviewButton = document.getElementById('review-button');
-let content = reviewButton.innerHTML;
+let content;
+if (reviewButton) {
+  content = reviewButton.innerHTML;
+}
 const reviewForm = document.querySelector('.review-form');
 const theMap = document.querySelector('.the-map');
 const reviewCards = document.querySelector('.review-cards');
@@ -83,18 +89,43 @@ const locationBtn = document.querySelector('.location-button');
     });
   }
 
-// const hideItinerary = document.querySelector('hide-itinerary');
-// const revealItinerary = document.querySelector('itineray-hidden');
+// Get the modal
+var modal = document.getElementById("myModal");
 
-//   if(hideItinerary) {
-//     hideItinerary.addEventListener('click', (e) => {
-//       hideItinerary.classList.toggle('itinerary-hidden');
-//     });
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
 
-//   if(revealItinerary) {
-//     revealItinerary.addEventListener('click', (e) =>{
-//     revealItinerary.classList.toggle('hide-itinerary');
-//     });
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+import { initSortable } from '../plugins/init_sortable'; // <-- add this
 
 
+const locationsShow = document.querySelector(".itineraries.show");
+
+if(locationsShow) {
+  // fetchLocations('harry potter');
+  initSortable(); // <-- add this
+
+  // const form = document.querySelector('#search-form');
+  // form.addEventListener('submit', updateResultsList);
+
+}
 
