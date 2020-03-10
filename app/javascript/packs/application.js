@@ -94,4 +94,17 @@ const locationBtn = document.querySelector('.location-button');
 //     });
 
 
+import { initSortable } from '../plugins/init_sortable'; // <-- add this
+
+
+const locationsShow = document.querySelector(".itineraries.show");
+
+if(locationsShow) {
+  // fetchLocations('harry potter');
+  initSortable(); // <-- add this
+
+  // const form = document.querySelector('#search-form');
+  // form.addEventListener('submit', updateResultsList);
+
+}
 
