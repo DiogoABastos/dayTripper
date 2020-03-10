@@ -75,7 +75,8 @@ const locationBtn = document.querySelector('.location-button');
 
   if (locationBtn) {
     locationBtn.addEventListener('click', () => {
-      console.log('e');
+      initMapbox();
+      initAutocomplete();
     });
   }
 
