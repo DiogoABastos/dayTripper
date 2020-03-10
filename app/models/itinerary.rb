@@ -7,6 +7,19 @@ class Itinerary < ApplicationRecord
 
   has_one_attached :photo
 
+  # include PgSearch::Model
+  # multisearchable against: [:name]
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :name ],
+    associated_against: {
+      locations: [ :name, :address ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def markers_method
       self.locations.map do |location|
         {
@@ -14,6 +27,17 @@ class Itinerary < ApplicationRecord
           "lng" => location.longitude
         }
       end
+  end
+
+
+  def self.tagged_with(word)
+    locations = Location.tagged_with(word)
+    return [] if locations.empty?
+
+    locations.map do |loc|
+      loc.itineraries
+    end.uniq.flatten
+
   end
 
   def clone_with_locations(user)
@@ -24,19 +48,18 @@ class Itinerary < ApplicationRecord
     new_itinerary.name = "**COPY OF " + new_itinerary.name + "**"
     new_itinerary.save
 
-    self.locations.each do |loc|
+    locs = self.locations.map do |loc|
       loc_attr = loc.attributes
       loc_attr = loc_attr.except("id", "created_at", "updated_at")
       new_location = Location.new(loc_attr)
+      loc.tag_list.each do |tag|
+        new_location.tag_list.add(tag)
+      end
       new_location.save
 
-      loc.itinerary_locations.each do |itinerary_loc|
-        new_itinerary_location = ItineraryLocation.new
-        new_itinerary_location.location = new_location
-        new_itinerary_location.itinerary = new_itinerary
-        new_itinerary_location.save
-      end
+      ItineraryLocation.create(location: new_location, itinerary: new_itinerary)
     end
+
     new_itinerary
   end
 

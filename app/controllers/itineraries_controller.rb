@@ -3,12 +3,18 @@ class ItinerariesController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = " \
-        itineraries.name ILIKE :query \
-        OR locations.name ILIKE :query \
-        OR locations.address ILIKE :query \
-      "
-      @itineraries = policy_scope(Itinerary).joins(:locations).where(sql_query, query: "%#{params[:query]}%").uniq
+
+      @itineraries_global = policy_scope(Itinerary).global_search(params[:query])
+
+      @itineraries_by_tag = policy_scope(Itinerary).tagged_with(params[:query])
+
+      @itineraries = (@itineraries_global + @itineraries_by_tag).uniq
+      # sql_query = " \
+      #   itineraries.name ILIKE :query \
+      #   OR locations.name ILIKE :query \
+      #   OR locations.address ILIKE :query \
+      # "
+      # @itineraries = policy_scope(Itinerary).joins(:locations).where(sql_query, query: "%#{params[:query]}%").uniq
     else
       @itineraries = policy_scope(Itinerary)
     end
