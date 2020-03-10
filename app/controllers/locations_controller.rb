@@ -27,8 +27,6 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
-
-
     @location.itineraries << @itinerary
     @itinerary.duration += @location.duration
 
@@ -65,7 +63,7 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:name, :address, :description, :duration, photos: [], tag_list: [])
+    params.require(:location).permit(:name, :address, :description, :duration, :tag_list, photos: [])
   end
 
   def find_itinerary
