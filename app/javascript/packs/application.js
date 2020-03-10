@@ -9,7 +9,10 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
-initMapbox();
+if (!document.body.classList.contains('itineraries') && !document.body.classList.contains('show')) {
+  initMapbox();
+}
+
 
 initAutocomplete();
 
@@ -40,7 +43,10 @@ if (add) {
 }
 
 const reviewButton = document.getElementById('review-button');
-let content = reviewButton.innerHTML;
+let content;
+if (reviewButton) {
+  content = reviewButton.innerHTML;
+}
 const reviewForm = document.querySelector('.review-form');
 const theMap = document.querySelector('.the-map');
 const reviewCards = document.querySelector('.review-cards');
