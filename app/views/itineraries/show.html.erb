@@ -38,10 +38,12 @@
 
     <div id="location-cards">
       <% @itinerary.locations.each do |location| %>
-        <%= link_to itinerary_location_path(@itinerary, location) do %>
+        <div>
+          <%= link_to itinerary_location_path(@itinerary, location) do %>
 
-        <%= render 'location', itinerary: @itinerary, location: location %>
+          <%= render 'location', itinerary: @itinerary, location: location %>
         <% end %>
+        </div>
       <% end %>
     </div>
   </div>
