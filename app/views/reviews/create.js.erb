@@ -9,8 +9,8 @@ function addReview(reviewHTML) {
 }
 
 function update(HTML) {
-  const reviewRating = document.querySelector('.review-rating');
-  reviewRating.insertAdjacentHTML('afterbegin', HTML);
+  const reviewsRating = document.querySelector('.reviews-rating');
+  reviewsRating.insertAdjacentHTML('afterbegin', HTML);
 }
 
 <% if @review.errors.any? %>
