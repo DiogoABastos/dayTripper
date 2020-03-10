@@ -18,7 +18,9 @@
           <% end %>
             <div>
               <h5>Built by</h3>
+                <%= link_to profile_path do %>
               <%= @itinerary.user.username %>
+              <% end %>
             </div>
           </div>
 
@@ -68,5 +70,9 @@
     </div>
   </div>
 </div>
+
+
+
+<%= render 'image_carousel', itinerary: @itinerary, location: @locations %>
 
 

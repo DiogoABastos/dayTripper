@@ -1,3 +1,5 @@
+require 'json'
+require 'open-uri'
 module ApplicationHelper
 
   def plural(exp, time)
@@ -74,4 +76,31 @@ module ApplicationHelper
       image_tag "bridge.jpg", alt: "alttext"
     end
   end
+
+  def routing(itinerary)
+
+  url_root = 'https://api.mapbox.com/directions/v5/mapbox/'
+  travel_mode = 'walking/'
+  origin_coordinates = "#{itinerary.locations.first.longitude},#{itinerary.locations.first.latitude};"
+  destination_coordinates = "#{itinerary.locations.last.longitude},#{itinerary.locations.last.latitude}"
+  mapbox = '?geometries=geojson&access_token=pk.eyJ1Ijoic3RldmVzcGlkZXJzIiwiYSI6ImNrN2JqZW43MjAyM3YzcWxjb2VkZG9qNmUifQ.iMQH53oEUdtY8nAbUaAl3w'
+  url = "#{url_root}#{travel_mode}#{origin_coordinates}#{destination_coordinates}#{mapbox}"
+
+  routes_serialized = open(url).read
+  routes = JSON.parse(routes_serialized)
+  # return routes['routes'][0]["legs"][0]["summary"]
+  end
+
 end
+  # def photo_attached(locations)
+  #   x = []
+  #   @locations.each do |location|
+  #     x << location.photos.attached?
+  #     byebug
+  #   end
+  #   photo_tf = x?
+  #   return photo_tf
+  # end
+
+  # end
+
