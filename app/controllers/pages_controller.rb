@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   def profile
     @user = current_user
     @itineraries=current_user.itineraries
+
   end
 
   def update_profile
