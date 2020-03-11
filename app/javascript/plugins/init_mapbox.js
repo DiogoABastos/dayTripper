@@ -1,4 +1,4 @@
-//import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mapboxgl from 'mapbox-gl';
 
 const mapElement = document.getElementById('map');
@@ -41,8 +41,8 @@ const initMapbox = () => {
 
     const map = buildMap();
 
-    //map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                          //mapboxgl: mapboxgl }));
+    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+                                          mapboxgl: mapboxgl }));
     if (mapIndex.dataset.markers.length > 4) {
       let markers = JSON.parse(mapElement.dataset.markers);
       if (!Array.isArray(markers)) {

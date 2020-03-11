@@ -33,15 +33,9 @@ class LocationsController < ApplicationController
     authorize @location
 
     if @location.save
-      respond_to do |format|
-        format.html { redirect_to itinerary_path(@itinerary) }
-        format.js
-      end
+      redirect_to @itinerary
     else
-      respond_to do |format|
-        format.html { render 'itineraries/location' }
-        format.js
-      end
+      render :new
     end
   end
 

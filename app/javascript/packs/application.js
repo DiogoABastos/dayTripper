@@ -14,7 +14,7 @@ if (!document.body.classList.contains('itineraries') || !document.body.classList
 }
 
 
-initAutocomplete();
+//initAutocomplete();
 
 const pagesHome = document.querySelector(".home");
 const navbarTarget = document.querySelector(".navbar-lewagon");
@@ -50,11 +50,13 @@ if (reviewButton) {
 const reviewForm = document.querySelector('.review-form');
 const theMap = document.querySelector('.the-map');
 const reviewCards = document.querySelector('.review-cards');
+const instructions = document.querySelector('#instructions');
 
 if (reviewButton && reviewForm && theMap && reviewCards) {
   reviewButton.addEventListener('click', (e) => {
     reviewForm.classList.toggle('review-form-active');
     theMap.classList.toggle('the-map-active');
+    instructions.classList.toggle('instructions-active');
     reviewCards.classList.toggle('review-cards-active');
     if (reviewButton.innerHTML === 'Show map') {
       reviewButton.innerHTML = content;
