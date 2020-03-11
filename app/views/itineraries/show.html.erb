@@ -14,13 +14,14 @@
               <%= render 'review_button', itinerary: @itinerary %>
             </a>
           </div>
-          <div class="d-flex align-items-center user-details-show">
+
+          <div class="d-flex align-items-end user-details-show">
           <% if @itinerary.user.photo.attached? %>
             <%= cl_image_tag @itinerary.user.photo.key, width: 50, height: 50, radius: :max, gravity: :face%>
           <% else %>
             <i style="font-size: 32px" class="fas fa-user-circle"></i>
           <% end %>
-            <div>
+            <div class="align-bottom ml-2">
               <h5>Built by</h3>
               <%= @itinerary.user.username %>
             </div>

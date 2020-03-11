@@ -22,7 +22,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin: 0px 20px 10px 20px;
+  margin: 0px 15px 10px 15px;
 
   img{
     height: 109px;
@@ -136,6 +136,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+
 }
 
 #location-cards{
@@ -156,6 +158,22 @@ a {
   color: #4285F4;
 }
 
+#location-cards{
+    padding: 0px;
+}
 
+.location-fields{
+  margin-left: 10px;
+}
+.fa-tag{
+  padding: 0px;
+}
 
+.form-tag-icon{
+  margin-left: 15px;
+}
+
+.show-background{
+  background-color: white;
+}
 
