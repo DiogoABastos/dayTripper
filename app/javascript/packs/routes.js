@@ -83,7 +83,9 @@ function getRoute(end) {
     // add turn instructions here at the end
     var instructions = document.getElementById('instructions');
     var steps = data.legs[0].steps;
-    var totalTripDuration = JSON.parse(tripDuration.dataset.duration);
+    if (tripDuration) {
+      var totalTripDuration = JSON.parse(tripDuration.dataset.duration);
+    }
     total.value += Math.floor(data.duration / 60);
     instructions.innerHTML = `<span class="duration">Total walking duration: ${total.value} mins 🚶‍♂️</span>`
   };
