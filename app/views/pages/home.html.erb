@@ -1,43 +1,30 @@
 
 <div class="home-video-wrapper">
-  <%= video_tag "videofiltered.mp4", autoplay: 'true',preload: 'true', loop: 'true', mute: 'true', class: "home_video" %>
-  <divc class="banner-content">
-    <div>
-     <h1 class="home"> DayTripper <i class="fas fa-map-marker-alt" id="banner-marker-big"></i></h1>
+  <%= video_tag "videofiltered.mp4", playsinline: 'true', autoplay: 'true', preload: 'true', loop: 'true', mute: 'true', class: "home_video" %>
+  <div class="banner-content">
+    <h1 class="home"> DayTripper <i class="fas fa-map-marker-alt" id="banner-marker-big"></i></h1>
+    <div class="banner-name">
       <h2 id="bn-cta">Self-guided itineraries built by travellers like <strong><u>YOU.</u></strong></h2>
+      <h3 id="bn-explore">Exploring has never been so easy. Search or build your trip today!</h3>
     </div>
-    <div class="btn-banner">
-        <%= link_to itineraries_path do %>
-        <button class="btn btn-primary"><i class="fas fa-search-location"></i> Search Itineraries</button>
-         <% end %>
-        <%= link_to new_itinerary_path do %>
-        <button class="btn btn-primary"><i class="fas fa-map-marked-alt"></i>  Build my Own</button>
-        <% end %>
+      <div class="banner-user-option">
+
+      <div class="d-flex justify-content-around align-items-center">
+        <div class="search-form-control form-group banner-search">
+          <%= simple_form_for :search, url: itineraries_path, method: :get do |f| %>
+            <input class="form-control search-input string required" style="font-size: 16px;" type="text" name="search[query]" id="search_query" placeholder="Search daytrips by city, location, & interests..." />
+            <button name="button" type="submit" class="btn btn-flat btn-banner-search">
+              <i class="fas fa-search"></i> Search Trips</button>
+            <% end %>
+        </div>
+        <div class="banner-build">
+          <%= link_to new_itinerary_path do %>
+            <button class="btn btn-primary btn-banner-build"><i class="fas fa-map-marked-alt"></i>  Build my Own</button>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="banner-value-cards">
-  <div class="value-cards">
-    <h1>EXPLORE</h1>
-    <h2>Explore a new city or rediscover your own. It's that simple. </h2>
-    <p>Search DayTrippers database of single day itineraries built by our community of life experiencers, avid travellers, and local explorers.</p>
-  </div>
 
-  <div class="value-cards">
-    <h1>BUILD</h1>
-    <h2>Trip Planning Made Easy</h2>
-    <p>Our mission is to make trip planning as easy as possible. Use our Daytrip itinerary builder to customize your adventure in any city. Start from scratch or copy another trip you like!</p>
-    <div class="btn-banner">
-      <%= link_to new_itinerary_path do %>
-      <button class="btn btn-primary"><i class="fas fa-map-marked-alt"></i>  Start Building</button>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="value-cards">
-    <h1>SHARE</h1>
-    <h2>Sharing is Caring</h2>
-    <p>Our platform's mission is to unlock the "best day ever" for everyone which is only made possible by the collective.</p>
-  </div>
-</div>

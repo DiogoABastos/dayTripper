@@ -12,36 +12,43 @@
 
 .home-video-wrapper {
   height: calc(100vh - 52px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  text-align: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
 h1 {
-  font-size: 64px;
+  font-size: 90px;
   font-weight: bold;
-  margin-bottom: 35px;
   color: $_light_orange;
   font-family: 'Gloria Hallelujah', ;
   text-align: center;
   text-decoration: underline;
-  // margin-top: 20px;
+  padding: 0px;
   }
-}
-
-#bn-cta{
-  width: 900px;
-  word-spacing: 25px;
-}
-
-.home-video-wrapper {
   h2 {
-    font-size: 48px;
+    font-size: 64px;
     color: $_cream;
     font-weight: bold;
     text-align: center;
     // background-color: rgba(105, 143, 176, 0.3);
     padding: 5px;
+    margin: 80px auto 0px auto;
+    padding: 0px;
+    width: 71%;
+    word-spacing: 10px;
   }
+
+h3 {
+  color: white;
+  font-size: 28px;
+  margin: 0px;
+  padding: 0px;
+  }
+}
+
+.banner-content{
+  position: relative;
+  top: 50px;
 }
 
 .btn-banner{
@@ -69,14 +76,83 @@ h1 {
     }
 }
 
-.banner-content{
-  // padding: 25px;
-  box-shadow: 5px;
-  margin: 100px 140px 100px 140px;
-}
-
 #banner-marker-big {
   font-size: 70px;
   padding: 0px;
 }
+
+.search-form-control {
+  position: relative;
+}
+
+.search-form-control .btn {
+  position: absolute;
+  right: 0px;
+  font-weight: 24px;
+  color: white;
+  background-color: $_db_lightblue;
+  vertical-align: center;
+}
+
+.search-form-control .form-control {
+  height: 3.8rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+}
+
+.search-form-control .form-control:focus {
+  border: 1px solid #1EDD88;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.banner-search{
+  // border-radius: 10px;
+  // box-shadow: 1px 2px 1px $_db_lightblue;
+  width: 100%;
+}
+
+.banner-user-option{
+  position: relative;
+  top: 65px;
+  width: 80%;
+  margin: auto;
+  .banner-search{
+
+  margin: 0px 60px;
+  }
+}
+
+.btn-banner-search{
+  width: 15rem;
+  height: 3.8rem;
+  position: relative;
+  top: 0px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+.btn-banner-build{
+background-color: $_medium_orange;
+border: 0px;
+height: 3.8rem;
+width: 15rem;
+font-size: 24px;
+font-weight: bold;
+}
+
+.btn-banner-build:hover{
+  background-color: $_deep_blue;
+}
+
+.btn-banner-search:hover{
+  background-color: $_deep_blue;
+}
+
+#bn-explore{
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 
