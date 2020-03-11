@@ -56,15 +56,20 @@ abana.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
 end
 
-beach = Itinerary.new({ name: 'Beach trip Cascais', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
+beach = Itinerary.new({ name: 'Beach trip Cascais', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 660 })
 beach.user = m
 beach.locations << [boca_inferno, guincho, marina_cascais]
+boca_inferno_photo = URI.open("https://upload.wikimedia.org/wikipedia/commons/6/63/Boca_do_Inferno_em_Cascais.jpg")
 guincho_photo = URI.open("https://www.golisbon.com/images/images/guincho-beach.jpg")
+marina_cascais_photo = URI.open("https://www.messagez.com/wp-content/gallery/lisbon/beautiful-cascais-marina-at-sunset-photography-2-by-messagez-com_.jpg")
+beach.photo.attach(io: boca_inferno_photo, filename: 'boca_inferno.jpg', content_type: 'image/jpg')
 beach.photo.attach(io: guincho_photo, filename: 'guincho.jpg', content_type: 'image/jpg')
+beach.photo.attach(io: marina_cascais_photo, filename: 'marina_cascais.jpg', content_type: 'image/jpg')
 beach.save!
 beach.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
 end
+
 
 abana = Itinerary.new({ name: 'Lisbon views', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = d
