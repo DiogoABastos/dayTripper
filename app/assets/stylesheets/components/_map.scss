@@ -14,3 +14,11 @@
 .the-map-active {
   transform: translateX(100%);
 }
+
+#instructions {
+  transition: all 1s ease;
+}
+
+.instructions-active {
+  transform: translateY(-500%);
+}
