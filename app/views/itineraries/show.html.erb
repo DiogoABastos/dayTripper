@@ -1,6 +1,4 @@
 <div class="modal-x" id="myModal-x">
-      <span class="close-x" id="close-x">&times;</span>
-
   <div class="modal-content-x">
     <%= render 'image_carousel', itinerary: @itinerary, location: @locations %>
   </div>
@@ -62,6 +60,7 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+    <div id="instructions"></div>
     <div class="review-form" id="ajax-review-form">
       <%= render 'review_form', itinerary: @itinerary, review: @review %>
     </div>
