@@ -1,0 +1,23 @@
+.banner-value-cards{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px;
+
+}
+
+.value-cards{
+  background-color: $_db_lightblue;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px;
+  height: 400px;
+  width: 400px;
+  padding: 25px 25px;
+  text-align: center;
+  vertical-align: center;
+
+  h1{
+    text-decoration: underline;
+    }
+  }
