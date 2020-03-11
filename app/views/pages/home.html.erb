@@ -1,6 +1,6 @@
 
 <div class="home-video-wrapper">
-  <%= video_tag "videov3.mp4", autoplay: 'true',preload: 'true', loop: 'true', mute: 'true', class: "home_video" %>
+  <%= video_tag "videofiltered.mp4", autoplay: 'true',preload: 'true', loop: 'true', mute: 'true', class: "home_video" %>
   <divc class="banner-content">
     <div>
      <h1 class="home"> DayTripper <i class="fas fa-map-marker-alt" id="banner-marker-big"></i></h1>
@@ -14,5 +14,30 @@
         <button class="btn btn-primary"><i class="fas fa-map-marked-alt"></i>  Build my Own</button>
         <% end %>
     </div>
+  </div>
+</div>
+
+<div class="banner-value-cards">
+  <div class="value-cards">
+    <h1>EXPLORE</h1>
+    <h2>Explore a new city or rediscover your own. It's that simple. </h2>
+    <p>Search DayTrippers database of single day itineraries built by our community of life experiencers, avid travellers, and local explorers.</p>
+  </div>
+
+  <div class="value-cards">
+    <h1>BUILD</h1>
+    <h2>Trip Planning Made Easy</h2>
+    <p>Our mission is to make trip planning as easy as possible. Use our Daytrip itinerary builder to customize your adventure in any city. Start from scratch or copy another trip you like!</p>
+    <div class="btn-banner">
+      <%= link_to new_itinerary_path do %>
+      <button class="btn btn-primary"><i class="fas fa-map-marked-alt"></i>  Start Building</button>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="value-cards">
+    <h1>SHARE</h1>
+    <h2>Sharing is Caring</h2>
+    <p>Our platform's mission is to unlock the "best day ever" for everyone which is only made possible by the collective.</p>
   </div>
 </div>
