@@ -1,14 +1,26 @@
-<div class="page-new-itinerary">
-  <div class="row">
-    <div class="col-8 form-login new-itinerary d-flex">
-      <%= simple_form_for itinerary do |f| %>
-        <%= f.input :name, label: "Name your Itinerary", placeholder: "Name your itinerary like 'The best street art of Lisbon'", wrapper_html: {class: 'label'} %>
-        <%= f.input :description, label: "Add a description", placeholder: "Add a description to explain your itinerary to friends, family and the Daytripper communty :)", wrapper_html: {class: 'label'} %>
-        <%= f.input :photo, as: :file, input_html: { multiple: false }, label: "Add a photo", wrapper_html: {class: 'label'} %>
-        <%= f.button :submit, 'Continue', class: 'btn btn-primary new-itinerary-btn' %>
-      <% end %>
-      <div>
-       <%= image_tag("colorful-build.jpg", height: '500', width: '400',  class: 'new-itinerary-image')%>
+<div class="background-img-new" style="background-image: url(https://i.pinimg.com/originals/e5/2f/0d/e52f0d24ff3a3908f2f4c4d1205cdbb2.jpg);">
+  <div class="container">
+      <div class="rowt">
+        <div class="col-md-6">
+          <div class="well well-sm">
+            <div class="form-signup w-100">
+              <h2 style="color:#333333">CREATE YOUR OWN TRIP</h2>
+              <%= simple_form_for itinerary do |f| %>
+              <div class="form-inputs" >
+              <%= f.input :name, label: "NAME YOUR ITINERARY", placeholder: "Name your itinerary like 'The best street art of Lisbon'", wrapper_html: {class: 'label'} %>
+              <%= f.input :description, label: "ADD DESCRIPTION", placeholder: "Add a description to explain your itinerary to friends, family and the Daytripper community :)", wrapper_html: {class: 'label'} %>
+              <label class="btn btn-primary">
+              ADD PHOTOS
+              <span style="display:none;">
+              <%= f.file_field :image, required: true, multiple: true, name: 'picture' %>
+              </span>
+              </label>
+              </div>
+              <%= f.button :submit, 'GO TO THE NEXT STEP', class: 'btn btn-warning new-itinerary-btn w-100' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
