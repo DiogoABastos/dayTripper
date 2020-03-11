@@ -41,8 +41,12 @@ const initMapbox = () => {
 
     const map = buildMap();
 
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                          mapboxgl: mapboxgl }));
+    if (!document.body.classList.contains('itineraries') && !document.body.classList.contains('show')) {
+      map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+                                            mapboxgl: mapboxgl }));
+    }
+
+
     if (mapIndex.dataset.markers.length > 4) {
       let markers = JSON.parse(mapElement.dataset.markers);
       if (!Array.isArray(markers)) {
