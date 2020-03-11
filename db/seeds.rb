@@ -56,11 +56,15 @@ abana.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
 end
 
-beach = Itinerary.new({ name: 'Beach trip Cascais', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
+beach = Itinerary.new({ name: 'Beach trip Cascais', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 660 })
 beach.user = m
 beach.locations << [boca_inferno, guincho, marina_cascais]
+boca_inferno_photo = URI.open("https://upload.wikimedia.org/wikipedia/commons/6/63/Boca_do_Inferno_em_Cascais.jpg")
 guincho_photo = URI.open("https://www.golisbon.com/images/images/guincho-beach.jpg")
+marina_cascais_photo = URI.open("https://www.messagez.com/wp-content/gallery/lisbon/beautiful-cascais-marina-at-sunset-photography-2-by-messagez-com_.jpg")
+beach.photo.attach(io: boca_inferno_photo, filename: 'boca_inferno.jpg', content_type: 'image/jpg')
 beach.photo.attach(io: guincho_photo, filename: 'guincho.jpg', content_type: 'image/jpg')
+beach.photo.attach(io: marina_cascais_photo, filename: 'marina_cascais.jpg', content_type: 'image/jpg')
 beach.save!
 beach.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -69,14 +73,18 @@ end
 abana = Itinerary.new({ name: 'Lisbon views', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = d
 abana.locations << [s_jorge, m_moniz, f_ladra]
+abana_photo = URI.open("https://jetsettingfools.com/wp-content/uploads/2014/12/Arco-da-Rua-Augusta-Lisbon-Portugal.jpg")
+abana.photo.attach(io: abana_photo, filename: 'abana.jpg', content_type: 'image/jpg')
 abana.save!
 abana.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
 end
 
-beach = Itinerary.new({ name: 'Awsome Beaches', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
+beach = Itinerary.new({ name: 'Awesome Beaches', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = g
 beach.locations << [boca_inferno, guincho, marina_cascais]
+beach_photo = URI.open("https://www.travel-in-portugal.com/sites/default/files/beaches/praia-da-abano-cascais.jpg")
+beach.photo.attach(io: beach_photo, filename: 'beach.jpg', content_type: 'image/jpg')
 beach.save!
 beach.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -85,6 +93,8 @@ end
 abana = Itinerary.new({ name: 'Lisbon rocks', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = m
 abana.locations << [s_jorge, m_moniz, f_ladra]
+abana_photo = URI.open("https://ipt.imgix.net/202224/x/0/9-day-portugal-photography-tour-algarve-beaches-amp-lisbon.jpg?auto=format%2Ccompress&fit=crop&crop=faces%2Ccenter&ixlib=react-8.6.4&h=360&w=920")
+abana.photo.attach(io: abana_photo, filename: 'abana.jpg', content_type: 'image/jpg')
 abana.save!
 abana.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -93,6 +103,8 @@ end
 beach = Itinerary.new({ name: 'Beaches forever', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = s
 beach.locations << [boca_inferno, guincho, marina_cascais]
+beach_photo = URI.open("https://algarvevillasblog.files.wordpress.com/2017/07/020-stranden-costa-vicentina-05-arrifana.jpg")
+beach.photo.attach(io: beach_photo, filename: 'beach.jpg', content_type: 'image/jpg')
 beach.save!
 beach.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -101,6 +113,8 @@ end
 abana = Itinerary.new({ name: 'Views and screws', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = d
 abana.locations << [s_jorge, m_moniz, f_ladra]
+abana_photo = URI.open("https://i.insider.com/5d23720921a861344a2957ff?width=1100&format=jpeg&auto=webp")
+abana.photo.attach(io: beach_photo, filename: 'abana.jpg', content_type: 'image/jpg')
 abana.save!
 abana.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -109,6 +123,8 @@ end
 beach = Itinerary.new({ name: 'Juggling beaches', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = g
 beach.locations << [boca_inferno, guincho, marina_cascais]
+beach_photo = URI.open("https://prideofmauicom.b-cdn.net/blog/wp-content/uploads/2014/03/Mauis-Top-10-Off-the-Beaten-Path_Paako-header.jpg")
+beach.photo.attach(io: beach_photo, filename: 'beach.jpg', content_type: 'image/jpg')
 beach.save!
 beach.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -117,6 +133,8 @@ end
 abana = Itinerary.new({ name: 'City stuff', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = m
 abana.locations << [s_jorge, m_moniz, f_ladra]
+abana_photo = URI.open("https://images4.newscred.com/Zz0xZmQwYzliMTU1YzkzNTM5ZTZmN2Q0NWQ3ZWFlMDFiMw==?height=480&width=800")
+abana.photo.attach(io: abana_photo, filename: 'abana.jpg', content_type: 'image/jpg')
 abana.save!
 abana.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -125,6 +143,8 @@ end
 beach = Itinerary.new({ name: 'Paradise beach', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = s
 beach.locations << [boca_inferno, guincho, marina_cascais]
+beach_photo = URI.open("https://live.staticflickr.com/7138/7002505010_14d49b1070_b.jpg")
+beach.photo.attach(io: beach_photo, filename: 'beach.jpg', content_type: 'image/jpg')
 beach.save!
 beach.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -133,6 +153,8 @@ end
 abana = Itinerary.new({ name: 'Cultural interchange', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = d
 abana.locations << [s_jorge, m_moniz, f_ladra]
+abana_photo = URI.open("https://k6u8v6y8.stackpathcdn.com/blog/wp-content/uploads/2013/12/top-places-for-a-delightful-cultural-trip-in-india.png0")
+abana.photo.attach(io: abana_photo, filename: 'abana.jpg', content_type: 'image/jpg')
 abana.save!
 abana.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -141,6 +163,8 @@ end
 beach = Itinerary.new({ name: 'Beach bomb', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = g
 beach.locations << [boca_inferno, guincho, marina_cascais]
+beach_photo = URI.open("https://live.staticflickr.com/65535/48470338191_dd40b6bcbf_b.jpg")
+beach.photo.attach(io: beach_photo, filename: 'beach.jpg', content_type: 'image/jpg')
 beach.save!
 beach.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -149,6 +173,8 @@ end
 abana = Itinerary.new({ name: 'Mind explosion', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = m
 abana.locations << [s_jorge, m_moniz, f_ladra]
+abana_photo = URI.open("https://k6u8v6y8.stackpathcdn.com/blog/wp-content/uploads/2013/12/top-places-for-a-delightful-cultural-trip-in-india.png0")
+abana.photo.attach(io: abana_photo, filename: 'abana.jpg', content_type: 'image/jpg')
 abana.save!
 abana.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -157,6 +183,8 @@ end
 beach = Itinerary.new({ name: 'Sand trails', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = s
 beach.locations << [boca_inferno, guincho, marina_cascais]
+beach_photo = URI.open("https://thumbor.forbes.com/thumbor/711x424/https://specials-images.forbesimg.com/dam/imageserve/685825834/960x0.jpg?fit=scale")
+beach.photo.attach(io: beach_photo, filename: 'beach.jpg', content_type: 'image/jpg')
 beach.save!
 beach.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -165,6 +193,8 @@ end
 abana = Itinerary.new({ name: 'Cultural boom', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = d
 abana.locations << [s_jorge, m_moniz, f_ladra]
+abana_photo = URI.open("https://d4qwptktddc5f.cloudfront.net/easy_thumbnails/thumbs_Interior-Design-American-Kennel-Club-Museum-of-the-Dog-New-York-01-0319.jpg.770x0_q95.jpg")
+abana.photo.attach(io: abana_photo, filename: 'abana.jpg', content_type: 'image/jpg')
 abana.save!
 abana.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -173,6 +203,8 @@ end
 beach = Itinerary.new({ name: 'Sand box', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = g
 beach.locations << [boca_inferno, guincho, marina_cascais]
+beach_photo = URI.open("https://lh3.googleusercontent.com/proxy/mYdEeOF8be9n7BC91g_Bm-2LpuXPsa69jaFW31K2XSU4h9uEHsq2lpYOZWNvEPloz1pBC0AJkpIxn5LYn-aPVnXMgmoAFq2y9CwnydznyWUdc64lH3xH9L-fOPx2Ny1QiqdiT7Twy_uRE6vyq87tjGxTra8")
+beach.photo.attach(io: beach_photo, filename: 'beach.jpg', content_type: 'image/jpg')
 beach.save!
 beach.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
