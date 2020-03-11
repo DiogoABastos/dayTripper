@@ -195,7 +195,7 @@ abana = Itinerary.new({ name: 'Cultural boom', description: "Really nice views w
 abana.user = d
 abana.locations << [s_jorge, m_moniz, f_ladra]
 abana_photo = URI.open("https://d4qwptktddc5f.cloudfront.net/easy_thumbnails/thumbs_Interior-Design-American-Kennel-Club-Museum-of-the-Dog-New-York-01-0319.jpg.770x0_q95.jpg")
-abana.photo.attach(io: beach_photo, filename: 'beach.jpg', content_type: 'image/jpg')
+abana.photo.attach(io: abana_photo, filename: 'abana.jpg', content_type: 'image/jpg')
 abana.save!abana.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
 end
