@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_105317) do
+ActiveRecord::Schema.define(version: 2020_03_11_170230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_105317) do
     t.bigint "itinerary_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "drag_order"
     t.index ["itinerary_id"], name: "index_itinerary_locations_on_itinerary_id"
     t.index ["location_id"], name: "index_itinerary_locations_on_location_id"
   end
