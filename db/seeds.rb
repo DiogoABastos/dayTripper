@@ -10,6 +10,7 @@ puts 'deleting every fcking thing 🧨'
 Review.delete_all
 Location.destroy_all
 Itinerary.destroy_all
+ItineraryLocation.destroy_all
 User.delete_all
 
 
@@ -51,86 +52,134 @@ abana = Itinerary.new({ name: 'Lisbon center', description: "Really nice views w
 abana.user = s
 abana.locations << [s_jorge, m_moniz, f_ladra]
 abana.save!
+abana.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
-beach = Itinerary.new({ name: 'Beach trip Cascais', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
+beach = Itinerary.new({ name: 'Beach trip Cascais', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 660 })
 beach.user = m
 beach.locations << [boca_inferno, guincho, marina_cascais]
+boca_inferno_photo = URI.open("https://upload.wikimedia.org/wikipedia/commons/6/63/Boca_do_Inferno_em_Cascais.jpg")
 guincho_photo = URI.open("https://www.golisbon.com/images/images/guincho-beach.jpg")
+marina_cascais_photo = URI.open("https://www.messagez.com/wp-content/gallery/lisbon/beautiful-cascais-marina-at-sunset-photography-2-by-messagez-com_.jpg")
+beach.photo.attach(io: boca_inferno_photo, filename: 'boca_inferno.jpg', content_type: 'image/jpg')
 beach.photo.attach(io: guincho_photo, filename: 'guincho.jpg', content_type: 'image/jpg')
+beach.photo.attach(io: marina_cascais_photo, filename: 'marina_cascais.jpg', content_type: 'image/jpg')
 beach.save!
-
-
+beach.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 
 abana = Itinerary.new({ name: 'Lisbon views', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = d
 abana.locations << [s_jorge, m_moniz, f_ladra]
 abana.save!
+abana.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 beach = Itinerary.new({ name: 'Awsome Beaches', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = g
 beach.locations << [boca_inferno, guincho, marina_cascais]
 beach.save!
-
+beach.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 abana = Itinerary.new({ name: 'Lisbon rocks', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = m
 abana.locations << [s_jorge, m_moniz, f_ladra]
 abana.save!
+abana.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 beach = Itinerary.new({ name: 'Beaches forever', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = s
 beach.locations << [boca_inferno, guincho, marina_cascais]
 beach.save!
-
+beach.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 abana = Itinerary.new({ name: 'Views and screws', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = d
 abana.locations << [s_jorge, m_moniz, f_ladra]
 abana.save!
+abana.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 beach = Itinerary.new({ name: 'Juggling beaches', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = g
 beach.locations << [boca_inferno, guincho, marina_cascais]
 beach.save!
+beach.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 abana = Itinerary.new({ name: 'City stuff', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = m
 abana.locations << [s_jorge, m_moniz, f_ladra]
 abana.save!
+abana.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 beach = Itinerary.new({ name: 'Paradise beach', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = s
 beach.locations << [boca_inferno, guincho, marina_cascais]
 beach.save!
+beach.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 abana = Itinerary.new({ name: 'Cultural interchange', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = d
 abana.locations << [s_jorge, m_moniz, f_ladra]
 abana.save!
+abana.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 beach = Itinerary.new({ name: 'Beach bomb', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = g
 beach.locations << [boca_inferno, guincho, marina_cascais]
 beach.save!
+beach.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 abana = Itinerary.new({ name: 'Mind explosion', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = m
 abana.locations << [s_jorge, m_moniz, f_ladra]
 abana.save!
+abana.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 beach = Itinerary.new({ name: 'Sand trails', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = s
 beach.locations << [boca_inferno, guincho, marina_cascais]
 beach.save!
+beach.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 abana = Itinerary.new({ name: 'Cultural boom', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = d
 abana.locations << [s_jorge, m_moniz, f_ladra]
 abana.save!
+abana.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
 beach = Itinerary.new({ name: 'Sand box', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = g
 beach.locations << [boca_inferno, guincho, marina_cascais]
 beach.save!
+beach.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
 
