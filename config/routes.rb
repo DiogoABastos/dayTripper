@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :itineraries do
+    member do
+      post "reorder", to: "locations#change_order"
+    end
     resources :locations
     resources :reviews, only: [:new, :create]
     member do

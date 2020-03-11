@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
-  before_action :find_itinerary
-  before_action :find_location, except: [:new, :create]
-
+  before_action :find_itinerary, except: :change_order
+  before_action :find_location, except: [:new, :create, :change_order]
+  before_action :skip_authorization, only: :change_order
   def show
     if @location.geocoded?
     @markers =
@@ -33,6 +33,7 @@ class LocationsController < ApplicationController
     authorize @location
 
     if @location.save
+      add_drag_order
       respond_to do |format|
         format.html { redirect_to itinerary_path(@itinerary) }
         format.js
@@ -43,6 +44,44 @@ class LocationsController < ApplicationController
         format.js
       end
     end
+  end
+
+  def change_order
+    @itinerary = Itinerary.find(params["id"])
+    #authorize @itinerary
+    old_itinerary_loc = @itinerary.itinerary_locations.find_by(drag_order: params["old"])
+    new_itinerary_loc = @itinerary.itinerary_locations.find_by(drag_order: params["new"])
+    ordered_locations = @itinerary.itinerary_locations.order(:drag_order)
+
+    old_drag_order = old_itinerary_loc.drag_order # 1
+    new_drag_order = new_itinerary_loc.drag_order # 3
+    # puts "---------------------------------------------------"
+    # puts "OLD #{old_drag_order}"
+    # puts "NEW #{new_drag_order}"
+
+    if new_drag_order > old_drag_order
+      @itinerary.itinerary_locations.order(:drag_order)[old_drag_order+1..new_drag_order].each do |elem|
+        #puts "Before: #{elem.location.name} is now #{elem.drag_order}"
+        # byebug
+        elem.drag_order -= 1
+        elem.save
+        puts "After: #{elem.location.name} is now #{elem.drag_order}"
+      end
+      old_itinerary_loc.drag_order = new_drag_order
+      old_itinerary_loc.save
+      puts "End: #{old_itinerary_loc.location.name} now is #{old_itinerary_loc.drag_order}"
+
+    elsif old_drag_order > new_drag_order
+      @itinerary.itinerary_locations.order(:drag_order)[new_drag_order..old_drag_order-1].each do |elem|
+        elem.drag_order += 1
+        elem.save
+      end
+      old_itinerary_loc.drag_order = new_drag_order
+      old_itinerary_loc.save
+    end
+
+
+    # redirect_to itinerary_path(@itinerary)
   end
 
   def edit; end
@@ -74,4 +113,18 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     authorize @location
   end
+
+  def add_drag_order
+    itinerary_locs = @itinerary.itinerary_locations.order(:created_at)
+
+    if itinerary_locs.count == 1
+      itinerary_locs.first.update(drag_order: 0)
+    else
+      last_drag_order = itinerary_locs[-2].drag_order
+      last_itinerary_location = @location.itinerary_locations.last
+      last_itinerary_location.drag_order = (last_drag_order + 1)
+      last_itinerary_location.save
+    end
+  end
+
 end
