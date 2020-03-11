@@ -39,10 +39,7 @@ class LocationsController < ApplicationController
         format.js
       end
     else
-      respond_to do |format|
-        format.html { render 'itineraries/location' }
-        format.js
-      end
+      render :new
     end
   end
 

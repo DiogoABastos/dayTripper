@@ -1,5 +1,5 @@
 
-.modal {
+.modal-x {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -12,7 +12,7 @@
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.modal-content {
+.modal-content-x {
   background-color: #fefefe;
   margin: 5% auto; /* 15% from the top and centered */
   padding: 20px;
@@ -21,16 +21,21 @@
 }
 
 /* The Close Button */
-.close {
+.close-x {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close-x:hover,
+.close-x:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.carousel-item-height{
+  max-height: 600px;
+
 }

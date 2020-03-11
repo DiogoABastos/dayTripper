@@ -1,0 +1,5 @@
+meta_product_name: "DayTripper"
+meta_title: "DayTripper - Seize the day. Be a DayTripper"
+meta_description: "Self-guided itineraries built by travellers like YOU."
+meta_image: "bridge.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

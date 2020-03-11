@@ -1,33 +1,31 @@
 
-<%if @itinerary.locations.exists?%>
+<%if @locations.exists?%>
 <div class="carousel-photo">
   <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div class="carousel-item active carousel-item-height">
         <% if @locations.first.photos.attached? %>
-        <%= cl_image_tag @locations.first.photos.first.key, :height=> 0.60 , :width => 0.70, :crop=>"fill", class: "d-block w-100", alt: 'First Slide' %>
+          <%= cl_image_tag @locations.first.photos.first.key, :height=> 0.60 , :width => 0.70, :crop=>"fill", class: "d-block w-100", alt: 'First Slide' %>
         <% else %>
-        <%= cl_image_tag "thzwKfbAd91nNz2xZx7sGt3p", :height=> 0.60 , :width => 0.70, :crop=>"fill", class: "d-block w-100", alt: 'First Slide' %>
+          <%= cl_image_tag "thzwKfbAd91nNz2xZx7sGt3p", :height=> 0.60 , :width => 0.70, :crop=>"fill", class: "d-block w-100", alt: 'First Slide' %>
         <% end %>
       </div>
-      <div>
+      <div class="car-description">
         <%= @locations.first.description %>
       </div>
-
-      <% @locations[1..-1].each do |location| %>
-      <div class="carousel-item">
+      <% @locations.drop(1).each do |location| %>
+        <div class="carousel-item carousel-item-height">
           <% if location.photos.attached? %>
             <%= cl_image_tag location.photos.first.key, :height=> 0.60 , :width => 0.70, :crop=>"fill", class: "d-block w-100" %>
           <% else %>
             <%= cl_image_tag "thzwKfbAd91nNz2xZx7sGt3p", :height=> 0.60 , :width => 0.70, :crop=>"fill", class: "d-block w-100" %>
-        </div>
-        <div>
-          <%= @location.description %>
-        </div>
           <% end %>
+        </div>
+        <div class="car-description">
+          <%= location.description %>
+        </div>
         <% end %>
       </div>
-    </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
@@ -36,6 +34,6 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+  </div>
 </div>
 <% end %>
-
