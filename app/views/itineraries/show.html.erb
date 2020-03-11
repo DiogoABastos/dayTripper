@@ -40,16 +40,17 @@
 
     <%= render 'horizontal_navbar' %>
 
-    <div id="location-cards">
-      <% @itinerary.locations.each do |location| %>
-        <div>
+    <ul id="location-cards">
+      <% @locations.each_with_index do |location, i| %>
+        <li data-id="<%= location.itinerary_locations.last.drag_order %>">
           <%= link_to itinerary_location_path(@itinerary, location) do %>
 
-          <%= render 'location', itinerary: @itinerary, location: location %>
-        <% end %>
-        </div>
+            <%= render 'location', itinerary: @itinerary, location: location %>
+
+          <% end %>
+        </li>
       <% end %>
-    </div>
+    </ul>
   </div>
 
   <div class="col-7 p-0">

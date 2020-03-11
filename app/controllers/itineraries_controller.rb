@@ -21,7 +21,8 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-    @locations = @itinerary.locations
+    @locations = @itinerary.locations.order("itinerary_locations.drag_order ASC")
+
     @location = Location.new
 
     @markers = @locations.map do |location|

@@ -8,8 +8,8 @@ class Location < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
 
-  # include PgSearch::Model
-  # multisearchable against: [:name, :address]
+
+
 
 
 end

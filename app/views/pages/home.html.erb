@@ -12,7 +12,14 @@
       <div class="d-flex justify-content-around align-items-center">
         <div class="search-form-control form-group banner-search">
           <%= simple_form_for :search, url: itineraries_path, method: :get do |f| %>
-            <input class="form-control search-input string required" style="font-size: 16px;" type="text" name="search[query]" id="search_query" placeholder="Search daytrips by city, location, & interests..." />
+            <!-- <input class="form-control search-input string required" style="font-size: 16px;" type="text" name="search[query]" id="search_query" placeholder="Search daytrips by city, location, & interests..." /> -->
+            <%= text_field_tag :query,
+              params[:query],
+              style: "font-size: 16px;",
+              id: "search_query",
+              class: "form-control search-input string required",
+              placeholder: "Search daytrips by city, location, & interests..."
+            %>
             <button name="button" type="submit" class="btn btn-flat btn-banner-search">
               <i class="fas fa-search"></i> Search Trips</button>
             <% end %>

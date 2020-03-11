@@ -8,7 +8,7 @@
 
   <div class="d-flex align-items-center">
     <i class="far fa-clock"></i>
-    <h2 class="detail-header">Total Trip Time: <%= duration(itinerary.duration) %>  </h2>
+    <h2 class="detail-header" id="trip-duration" data-duration="<%= duration(itinerary.duration).to_json %>">Total Trip Time: <%= duration(itinerary.duration) %>  </h2>
   </div>
   <div class="d-flex align-items-center">
     <i class="fas fa-tag"></i>

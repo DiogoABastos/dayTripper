@@ -21,6 +21,10 @@ class LocationPolicy < ApplicationPolicy
     user_owner
   end
 
+  def change_order?
+    true
+  end
+
   private
 
   def user_owner
