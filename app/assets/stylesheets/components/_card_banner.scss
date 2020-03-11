@@ -21,3 +21,34 @@
     text-decoration: underline;
     }
   }
+
+.card-mainpage{
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.5);
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: rgba(3, 165, 149, 1);
+}
+
+.card-mainpage:hover {
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.5);
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+}
+
+.card-text-header {
+  color: #0E0000;
+  font-size: 25px;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card-text-header:hover {
+color: rgba(3, 165, 149, 1);
+transform: scale(1.05, 1.05);
+}
+
+.card-text-description {
+color: #0E0000;
+font-size: 16px;
+}
+
+
