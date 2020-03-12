@@ -2,22 +2,27 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-left: 10px;
-  background-color: #555;
+  width: 95%;
+  background-color: $_deep_blue;
   overflow: hidden;
-  height: 5%;
+  height: 6%;
   margin: auto;
-  margin-left: 2px;
+
+  padding-bottom: 3px;
+  border-radius: 3px;
     h3 {
-      font-size: 10px;
+      font-size: 12px;
       margin: 1px;
-      color: #555;
+      padding-top: 3px;
+      color: $_deep_blue;
     }
 }
 
 .horiz-icon {
-  padding: 0px 30px;
+  padding: 0px 35px;
   font-size: 25px;
+  color: white;
+  margin-bottom: 6px;
 }
 .icon-bar a {
   float: left;
@@ -31,7 +36,9 @@
 
 .fill-color a:hover {
     width: 100%;
-    background-color: #000;
+    height: 100%;
+    padding: 5px;
+    background-color: $_db_lightblue;
     h3{
     color: white;
     }

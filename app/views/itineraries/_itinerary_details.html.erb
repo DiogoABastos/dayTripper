@@ -1,22 +1,36 @@
-<div class="trip-overview">
+<% if @itinerary.photo.attached? %>
+  <div class="trip-overview" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @itinerary.photo.key, height: 250, width: 600, crop: :scale %>')">
+<% else %>
+  <div class="trip-overview">
+<% end %>
   <h1>Trip Overview</h1>
-  <%= @itinerary.description %>
-  <div class='d-flex align-items-center'>
+  <p><%= @itinerary.description %></p>
+<div class="d-flex justify-content-around">
+  <div class='d-flex align-items-center  details-icon'>
     <i class="fas fa-map-marker-alt"></i>
     <h2 class="detail-header">Total Stops: <%= @itinerary.locations.count %> </h2>
   </div>
 
-  <div class="d-flex align-items-center">
+  <div class="d-flex align-items-center details-icon">
     <i class="far fa-clock"></i>
-    <h2 class="detail-header">Total Trip Time: <%= duration(itinerary.duration) %>  </h2>
+    <h2 class="detail-header" id="trip-duration" data-duration="<%= duration(itinerary.duration).to_json %>">Total Trip Time: <%= duration(itinerary.duration) %>  </h2>
   </div>
   <div class="d-flex align-items-center">
+
     <i class="fas fa-tag"></i>
     <ul class="details-itinerary">
-      <li>Trip Tags: </li>
+      <li>Trip Type: </li>
       <% @itinerary.locations.each do |location| %>
       <li><%=location.tag_list%></li>
     <% end %>
     </ul>
   </div>
+</div>
+
+
+  <div class="d-flex align-items-center ml-4 details-icon">
+    <i class="far fa-clock"></i>
+    <h2 class="detail-header">Total Trip Time: <%= duration(itinerary.duration) %>  </h2>
+  </div>
+
 </div>
