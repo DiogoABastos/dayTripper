@@ -14,7 +14,7 @@ if (!document.body.classList.contains('itineraries') || !document.body.classList
 }
 
 
-//initAutocomplete();
+initAutocomplete();
 
 const pagesHome = document.querySelector(".home");
 const navbarTarget = document.querySelector(".navbar-lewagon");
@@ -137,4 +137,10 @@ if(locationsShow) {
   initSortable(); // <-- add this
 
 }
+
+
+
+
+
+
 
