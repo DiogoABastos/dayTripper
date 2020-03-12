@@ -102,18 +102,7 @@ function getRoute(end) {
     //   });
     // }
     // add turn instructions here at the end
-    var instructions = document.getElementById('instructions');
-    var steps = data.legs[0].steps;
-    if (tripDuration) {
-      var totalTripDuration = JSON.parse(tripDuration.dataset.duration);
-    }
-    total.value += Math.floor(data.duration / 60);
-    instructions.innerHTML = `
-    <p class="stats-title">Trip Stats</p>
-    <p class="duration">Time at locations: ${duration(totalTripDuration)}</p>
-    <p class="duration">Walking duration: ${duration(total.value)}</p>
-    <p class="duration">Total trip duration: ${duration(totalTripDuration + total.value)}</p>
-    `
+
   };
   req.send();
 }

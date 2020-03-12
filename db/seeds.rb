@@ -47,8 +47,8 @@ marina_cascais.tag_list.add("Marina")
 marina_cascais.save!
 
 praca_rossio = Location.new({ name: 'Praca Rossio', address: 'Praca Rossio', description: 'A place in the heart of Lisbon with nice restaurants and cultural attractions', duration: 60 })
-praca_rosio.tag_list.add("Cultural")
-praca_rosio.save!
+praca_rossio.tag_list.add("Cultural")
+praca_rossio.save!
 
 topo_bar_chiado = Location.new({ name: 'Topo Bar Chiado', address: 'Topo Bar Chiado', description: 'A nice panoramic restaurant in the heart of Lisbon with nice tapas and  wine list', duration: 60 })
 topo_bar_chiado.tag_list.add("Cultural")
@@ -233,31 +233,31 @@ end
 
 puts "creating the special locations"
 
-georges_pub = Location.new({ name: 'Georges Pub', address: 'Praca Rossio', description: 'Epic British Pub in Lisbon. Heavy drinking with your mates!', duration: 120 })
+georges_pub = Location.new({ name: 'Georges Pub', address: 'Bairro Alto, Misericórdia, Área Metropolitana de Lisboa, Portugal', description: 'Epic British Pub in Lisbon. Heavy drinking with your mates!', duration: 120 })
 georges_pub.tag_list.add("Drinks")
 georges_pub.save!
 
-praca_rossio = Location.new({ name: 'Praça do Rossio', address: 'Praca Rossio', description: 'The square features a large pedestrian area flanked by trees with numerous cafes, restaurants and touristy shops', duration: 60 })
+praca_rossio = Location.new({ name: 'Praça do Rossio', address: 'Praça Martim Moniz, Santa Maria Maior, Área Metropolitana de Lisboa, Portugal', description: 'The square features a large pedestrian area flanked by trees with numerous cafes, restaurants and touristy shops', duration: 60 })
 praca_rossio.tag_list.add("Plaza", "Landmark")
 praca_rossio.save!
 
-topo_bar_chiado = Location.new({ name: 'Topo Bar Chiado', address: 'Topo Bar Chiado', description: 'TOPO Chiado rooftop bar restaurant Lisbon: panoramic city views, Carmo church ruins & lounging', duration: 60 })
+topo_bar_chiado = Location.new({ name: 'Topo Bar Chiado', address: 'Chiado, Santa Maria Maior, Área Metropolitana de Lisboa, Portugal', description: 'TOPO Chiado rooftop bar restaurant Lisbon: panoramic city views, Carmo church ruins & lounging', duration: 60 })
 topo_bar_chiado.tag_list.add("Rooftop Bar", "Drinks")
 topo_bar_chiado.save!
 
-rua_agusta = Location.new({ name: 'Rua Agusta', address: 'Rua Agusta', description: 'One of the most beautiful main streets that leads up to Praca do Comercio', duration: 10 })
+rua_agusta = Location.new({ name: 'Rua Agusta', address: 'Rua Augusta, Santa Maria Maior, Área Metropolitana de Lisboa, Portugal', description: 'One of the most beautiful main streets that leads up to Praca do Comercio', duration: 10 })
 rua_agusta.tag_list.add("Main Street", "Cultural")
 rua_agusta.save!
 
-praca_do_comercio = Location.new({ name: 'Praça do Comércio', address: 'Praça do Comércio', description: "Lisbon's most important square: the Praça do Comércio was for decades Lisbon's main entrepôt, and crucial for its maritime trade.", duration: 10 })
+praca_do_comercio = Location.new({ name: 'Praça do Comércio', address: 'Praça do Comércio, Santa Maria Maior, Área Metropolitana de Lisboa, Portugal', description: "Lisbon's most important square: the Praça do Comércio was for decades Lisbon's main entrepôt, and crucial for its maritime trade.", duration: 10 })
 praca_do_comercio.tag_list.add("Plaza", "Walk")
 praca_do_comercio.save!
 
-se_de_lisboa = Location.new({ name: 'Sé de Lisboa', address: 'Sé de Lisboa', description: 'he Lisbon Cathedral often called simply the Sé, is a Roman Catholic cathedral located in Lisbon, Portugal. The oldest church in the city is the seat of the', duration: 20 })
+se_de_lisboa = Location.new({ name: 'Sé de Lisboa', address: 'Largo da Sé, Santa Maria Maior, Área Metropolitana de Lisboa, Portugal', description: 'he Lisbon Cathedral often called simply the Sé, is a Roman Catholic cathedral located in Lisbon, Portugal. The oldest church in the city is the seat of the', duration: 20 })
 se_de_lisboa.tag_list.add("Church", "Historic")
 se_de_lisboa.save!
 
-portas_do_sol = Location.new({ name: 'Portas do Sol', address: 'Portas do Sol', description: 'ONE OF THE BEST VIEWS ON LISBON. –. Portas do Sol is a terrace coffee and cocktail bar, designed to take advantage of its exceptional location.', duration: 60 })
+portas_do_sol = Location.new({ name: 'Portas do Sol', address: 'Portas do Sol, Santa Maria Maior, Área Metropolitana de Lisboa, Portugal', description: 'ONE OF THE BEST VIEWS ON LISBON. –. Portas do Sol is a terrace coffee and cocktail bar, designed to take advantage of its exceptional location.', duration: 60 })
 portas_do_sol.tag_list.add("Viewpoint", "Drinks")
 portas_do_sol.save!
 

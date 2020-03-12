@@ -32,7 +32,7 @@ const fitMapToMarkers = (map, markers) => {
       }
     }
   );
-  map.fitBounds(bounds, { padding: 70, maxZoom: 13, duration: 0 });
+  map.fitBounds(bounds, { padding: 150, maxZoom: 15, duration: 0 });
 };
 
 const initMapbox = () => {
