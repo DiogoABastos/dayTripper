@@ -21,12 +21,7 @@
           <% else %>
             <i style="font-size: 32px" class="fas fa-user-circle"></i>
           <% end %>
-            <div class="align-bottom ml-2">
-              <h5>Built by</h3>
-              <%= @itinerary.user.username %>
-            </div>
           </div>
-
         </div>
 
     <% if !user_signed_in? || current_user.id != @itinerary.user_id %>

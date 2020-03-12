@@ -1,4 +1,4 @@
-<h1 id="index-h1">Itineraries</h1>
+<!-- <h1 id="index-h1">One itinerary a day, keeps the doctor away</h1> -->
 
 <%= render "shared/search" %>
 
@@ -17,13 +17,16 @@
               <div class="card-left">
                 <h2 class="pb-1"><%= itinerary.name %></h2>
 
-                <p>Short description here!</p>
+                <p class="max-lines-index"><%= itinerary.description %></p>
 
                 <%= link_to "Go on Itinerary", itinerary, class:"btn btn-primary btn-sm card-btn" %>
               </div>
               <div class="ratings-clock">
                <p class="pb-1"><%= rating(itinerary.reviews) %></p>
-               <p class="pr-1"><i class="far fa-clock p-1"></i><%=duration(itinerary.duration) %></p>
+               <div class="clock-index">
+                <p class="pr-1"><div><i class="far fa-clock p-1"></i></div>
+                <%= duration(itinerary.duration) %></p>
+               </div>
               </div>
             </div>
           </div>

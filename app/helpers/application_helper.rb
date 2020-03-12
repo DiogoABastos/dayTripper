@@ -11,11 +11,11 @@ module ApplicationHelper
   def duration(time)
     a, b = time.divmod(60)
     if b == 0
-      "#{a} #{plural('hour', a)}"
+      "#{a} h"
     elsif a == 0
-      "#{b} #{plural('min', b)}"
+      "#{b} m"
     else
-      "#{a} #{plural('hour', a)} and #{b} #{plural('min', b)}"
+      "#{a} h #{b} m"
     end
   end
 
