@@ -73,36 +73,6 @@ portas_do_sol.save!
 
 puts 'creating a bunch of itineraries'
 
-lisbon_walk = Itinerary.new({ name: 'Lisbon walk', description: "Lisbon day trip with cultural attractions and local cuisine", duration: 300 })
-lisbon_walk.user = s
-lisbon_walk.locations << [praca_rossio, topo_bar_chiado, rua_agusta, praca_do_comercio, se_de_lisboa, portas_do_sol]
-praca_rossio_photo = URI.open("https://c2.quickcachr.fotos.sapo.pt/i/G67070ca1/9435270_iZwkU.jpeg")
-topo_bar_chiado_photo = URI.open("https://cdn5.sabado.pt/images/2016-07/img_797x448$2016_07_26_21_31_57_179326.jpg")
-rua_agusta_photo = URI.open("https://ak7.picdn.net/shutterstock/videos/7319767/thumb/1.jpg")
-praca_do_comercio_photo = URI.open("https://media-manager.noticiasaominuto.com/1920/1541841849/naom_535e36fe684c1.jpg")
-se_de_lisboa_photo = URI.open("https://live.staticflickr.com/7211/13404726415_e869143df2_b.jpg")
-portas_do_sol_photo = URI.open("https://www.lisbonlux.com/images/lisbon/portas-do-sol-terrace.jpg")
-
-lisbon_walk.photo.attach(io: praca_rossio_photo, filename: 'praca_rossio.jpg', content_type: 'image/jpg')
-lisbon_walk.photo.attach(io: topo_bar_chiado_photo, filename: 'topo_bar_chiado.jpg', content_type: 'image/jpg')
-rua_agusta_photo.photo.attach(io: rua_agusta_photo, filename: 'rua_agusta.jpg', content_type: 'image/jpg')
-praca_do_comercio_photo.photo.attach(io: praca_do_comercio_photo, filename: 'praca_do_comercio.jpg', content_type: 'image/jpg')
-se_de_lisboa_photo.photo.attach(io: se_de_lisboa_photo, filename: 'se_de_lisboa.jpg', content_type: 'image/jpg')
-portas_do_sol_photo.photo.attach(io: portas_do_sol_photo, filename: 'portas_do_sol.jpg', content_type: 'image/jpg')
-
-
-lisbon_walk.save!
-lisbon_walk.itinerary_locations.each_with_index do |elem, ix|
-  elem.update(drag_order: ix)
-end
-
-abana = Itinerary.new({ name: 'Lisbon center', description: "Really nice views with a foreign aroma of spices", duration: 300 })
-abana.user = s
-abana.locations << [s_jorge, m_moniz, f_ladra]
-abana.save!
-abana.itinerary_locations.each_with_index do |elem, ix|
-  elem.update(drag_order: ix)
-end
 
 beach = Itinerary.new({ name: 'Beach trip Cascais', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 660 })
 beach.user = m
@@ -259,3 +229,63 @@ beach.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
 end
 
+# ----------------------------------------   THE MAIN SEED   --------------------------------------------------
+
+puts "creating the special locations"
+
+georges_pub = Location.new({ name: 'Georges Pub', address: 'Praca Rossio', description: 'Epic British Pub in Lisbon. Heavy drinking with your mates!', duration: 120 })
+georges_pub.tag_list.add("Drinks")
+georges_pub.save!
+
+praca_rossio = Location.new({ name: 'Praça do Rossio', address: 'Praca Rossio', description: 'The square features a large pedestrian area flanked by trees with numerous cafes, restaurants and touristy shops', duration: 60 })
+praca_rossio.tag_list.add("Plaza", "Landmark")
+praca_rossio.save!
+
+topo_bar_chiado = Location.new({ name: 'Topo Bar Chiado', address: 'Topo Bar Chiado', description: 'TOPO Chiado rooftop bar restaurant Lisbon: panoramic city views, Carmo church ruins & lounging', duration: 60 })
+topo_bar_chiado.tag_list.add("Rooftop Bar", "Drinks")
+topo_bar_chiado.save!
+
+rua_agusta = Location.new({ name: 'Rua Agusta', address: 'Rua Agusta', description: 'One of the most beautiful main streets that leads up to Praca do Comercio', duration: 10 })
+rua_agusta.tag_list.add("Main Street", "Cultural")
+rua_agusta.save!
+
+praca_do_comercio = Location.new({ name: 'Praça do Comércio', address: 'Praça do Comércio', description: "Lisbon's most important square: the Praça do Comércio was for decades Lisbon's main entrepôt, and crucial for its maritime trade.", duration: 10 })
+praca_do_comercio.tag_list.add("Plaza", "Walk")
+praca_do_comercio.save!
+
+se_de_lisboa = Location.new({ name: 'Sé de Lisboa', address: 'Sé de Lisboa', description: 'he Lisbon Cathedral often called simply the Sé, is a Roman Catholic cathedral located in Lisbon, Portugal. The oldest church in the city is the seat of the', duration: 20 })
+se_de_lisboa.tag_list.add("Church", "Historic")
+se_de_lisboa.save!
+
+portas_do_sol = Location.new({ name: 'Portas do Sol', address: 'Portas do Sol', description: 'ONE OF THE BEST VIEWS ON LISBON. –. Portas do Sol is a terrace coffee and cocktail bar, designed to take advantage of its exceptional location.', duration: 60 })
+portas_do_sol.tag_list.add("Viewpoint", "Drinks")
+portas_do_sol.save!
+
+georges_pub_photo = URI.open("https://portugalconfidential.com/wp-content/uploads/2015/02/The-George-Pub-Lisbon-feature.jpg")
+praca_rossio_photo = URI.open("https://c2.quickcachr.fotos.sapo.pt/i/G67070ca1/9435270_iZwkU.jpeg")
+topo_bar_chiado_photo = URI.open("https://cdn5.sabado.pt/images/2016-07/img_797x448$2016_07_26_21_31_57_179326.jpg")
+rua_agusta_photo = URI.open("https://ak7.picdn.net/shutterstock/videos/7319767/thumb/1.jpg")
+praca_do_comercio_photo = URI.open("https://media-manager.noticiasaominuto.com/1920/1541841849/naom_535e36fe684c1.jpg")
+se_de_lisboa_photo = URI.open("https://live.staticflickr.com/7211/13404726415_e869143df2_b.jpg")
+portas_do_sol_photo = URI.open("https://www.lisbonlux.com/images/lisbon/portas-do-sol-terrace.jpg")
+
+georges_pub.photos.attach(io: georges_pub_photo, filename: 'georges_pub.jpg', content_type: 'image/jpg')
+praca_rossio.photos.attach(io: praca_rossio_photo, filename: 'praca_rossio.jpg', content_type: 'image/jpg')
+topo_bar_chiado.photos.attach(io: topo_bar_chiado_photo, filename: 'topo_bar_chiado.jpg', content_type: 'image/jpg')
+rua_agusta.photos.attach(io: rua_agusta_photo, filename: 'rua_agusta.jpg', content_type: 'image/jpg')
+praca_do_comercio.photos.attach(io: praca_do_comercio_photo, filename: 'praca_do_comercio.jpg', content_type: 'image/jpg')
+se_de_lisboa.photos.attach(io: se_de_lisboa_photo, filename: 'se_de_lisboa.jpg', content_type: 'image/jpg')
+portas_do_sol.photos.attach(io: portas_do_sol_photo, filename: 'portas_do_sol.jpg', content_type: 'image/jpg')
+
+puts 'creating THE Itinerary'
+lisbon_walk = Itinerary.new({ name: 'Top Lisbon sites & Drinks :)', description: "The Best of Lisbon: Historical Views & Drink Stops", duration: 300 })
+lisbon_walk.user = g
+lisbon_walk.locations << [praca_rossio, topo_bar_chiado, rua_agusta, praca_do_comercio, se_de_lisboa, portas_do_sol]
+lisbon_walk_photo = URI.open("https://www.visitportugal.com/sites/default/files/styles/encontre_detalhe_poi_destaque/public/mediateca/N4.OTR1435D.jpg?itok=SCYgpQYi")
+lisbon_walk.photo.attach(io: lisbon_walk_photo, filename: 'lisbon_walk.jpg', content_type: 'image/jpg')
+lisbon_walk.save!
+lisbon_walk.itinerary_locations.each_with_index do |elem, ix|
+  elem.update(drag_order: ix)
+end
+
+puts "All done"

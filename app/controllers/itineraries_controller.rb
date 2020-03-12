@@ -21,6 +21,8 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    @skip_footer = true
+
     @locations = @itinerary.locations.order("itinerary_locations.drag_order ASC")
 
     @location = Location.new
