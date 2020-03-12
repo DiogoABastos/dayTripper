@@ -46,16 +46,25 @@ class Itinerary < ApplicationRecord
     new_itinerary = Itinerary.new(attr)
     new_itinerary.user = user
     new_itinerary.name = "**COPY OF " + new_itinerary.name + "**"
+    new_itinerary.photo = self.photo.blob
     new_itinerary.save
 
     locs = self.locations.map do |loc|
       loc_attr = loc.attributes
+
+
       loc_attr = loc_attr.except("id", "created_at", "updated_at")
       new_location = Location.new(loc_attr)
       loc.tag_list.each do |tag|
         new_location.tag_list.add(tag)
       end
       new_location.save
+
+      if loc.photos.attached?
+        loc.photos.each do |ph|
+          new_location.photos.attach(ph.blob)
+        end
+      end
 
       ItineraryLocation.create(location: new_location, itinerary: new_itinerary)
     end
