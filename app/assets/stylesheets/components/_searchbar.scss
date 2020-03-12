@@ -3,6 +3,19 @@
   margin: 0 auto;
 }
 
+.orange-search {
+  background-color: $_db_lightblue;
+  border: none;
+  width: 9rem;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.orange-search:hover {
+  background-color: $_deep_blue;
+  border: none;
+}
+
 .search-bar-home {
 
 }

@@ -1,13 +1,14 @@
-<%= form_tag itineraries_path, method: :get, class: "mt-4 mb-4 search-bar-index search-bar-home" do %>
+<%= form_tag itineraries_path, method: :get, class: "mt-5 mb-5 search-bar-index search-bar-home" do %>
 
   <div class="input-group search-group mb-3">
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
+      style: "height: 3.5rem",
       placeholder: "Search an Itinerary"
     %>
-    <div class="input-group-append ">
-      <%= submit_tag "Search", class: "btn btn-primary search-form" %>
+    <div class="input-group-append">
+      <%= submit_tag "Search", class: "btn btn-primary search-form orange-search" %>
     </div>
   </div>
 <% end %>

@@ -67,6 +67,7 @@
   // align-items: flex-end;
   position: relative;
   color:black;
+  min-height: 150px;
 
 }
 
@@ -75,10 +76,19 @@
   right: 16px;
   top: -20px;
   width: 40px;
+
 }
 
 .ratings-clock {
   text-align: right;
+  position: relative;
+  min-width: 70px;
+}
+
+.clock-index {
+  position: absolute;
+  bottom: 0px;
+  right: 0;
 }
 
 .index-click-map {
@@ -86,10 +96,19 @@
 }
 
 .card-left {
-
+  flex-grow: 1;
 }
 
 .card-btn {
+  position: absolute;
+  bottom: 15px;
+  background-color: $_medium_orange;
+  border: none;
+}
+
+.card-btn:hover {
+  background-color: $_deep_blue;
+  border: none;
 }
 
 
@@ -101,5 +120,13 @@
   }
 }
 
-
+.max-lines-index {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 4.5em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
 
