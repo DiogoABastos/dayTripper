@@ -9,7 +9,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
-if (!document.body.classList.contains('itineraries') || !document.body.classList.contains('show')) {
+if (document.body.classList.contains('itineraries')) {
   initMapbox();
 }
 
@@ -103,11 +103,11 @@ const locationsShow = document.querySelector(".itineraries.show");
 if(locationsShow) {
 
   //remove mapbox controllers
-  const mapbox = document.querySelector(".mapboxgl-ctrl")
-  const mapbox2 = document.querySelector(".mapboxgl-ctrl-bottom-right")
+  // const mapbox = document.querySelector(".mapboxgl-ctrl")
+  // const mapbox2 = document.querySelector(".mapboxgl-ctrl-bottom-right")
 
-  mapbox.classList.add("d-none")
-  mapbox2.classList.add("d-none")
+  // mapbox.classList.add("d-none")
+  // mapbox2.classList.add("d-none")
 
 
   // Get the modal

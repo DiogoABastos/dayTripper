@@ -57,7 +57,6 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <div id="instructions"></div>
     <div class="review-form" id="ajax-review-form">
       <%= render 'review_form', itinerary: @itinerary, review: @review %>
     </div>
@@ -75,6 +74,5 @@
   </div>
 </div>
 
-<%= javascript_pack_tag 'routes' %>
 
 
