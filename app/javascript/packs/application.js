@@ -23,6 +23,8 @@ if(pagesHome) navbarTarget.classList.add("nav-transparent");
 const mapIndex = document.getElementById("map");
 const indexClick = document.querySelectorAll(".index-click-map");
 
+
+
 indexClick.forEach((itinerary) => {
   itinerary.addEventListener("click", (event) => {
     let currentMarkers = itinerary.dataset.markers;
@@ -139,8 +141,15 @@ if(locationsShow) {
 }
 
 
+const ItIndex = document.querySelector(".itineraries.index")
 
+if (ItIndex) {
+  let firstItinerary = document.querySelector(".index-click-map")
 
+  let currentMarkers = firstItinerary.dataset.markers;
 
+    mapIndex.dataset.markers = currentMarkers.replace("=>",":");
+    initMapbox();
+}
 
 
