@@ -54,19 +54,52 @@
 
   p{
     padding-left: 15px;
-    font-size: 14px;
+    font-size: 16px;
     color: white;
     font-weight: bold;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 4.6em;
   }
 
 }
 
-.details-icon{
-  margin: auto;
-  position: relative;
-  top: 60px;
+.itinerary-icon{
   color: white;
-  font-size: 16px;
-  font-weight: bold;
-  }
+  font-size: 20px;
+  margin: 8px;
+  padding: 0px;
+}
 
+// .itinerary-icon:hover{
+//   font-size: 18px;
+//   font-weight: bolder;
+//   color: white;
+// }
+
+
+.detail-header li{
+  font-size: 16px;
+  font-weight: bolder;
+  color: white;
+  line-height: 1;
+  font-family: 'Rubik', sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+.detail-header:hover{
+  font-size: 18px;
+  font-weight: bolder;
+  color: $_db_lightblue;
+}
+
+.detail-header li:hover{
+  font-size: 18px;
+  font-weight: bolder;
+  color: $_db_lightblue;
+}
+.itinerary-desription{
+  padding-bottom: 60px;
+}
