@@ -4,6 +4,27 @@ var total = {
   value: 0
 };
 
+function plural(time, exp) {
+  if (time === 1) {
+    return exp;
+  } else {
+    return exp + 's';
+  }
+}
+
+function duration(time) {
+  const q = Math.floor(time / 60);
+  const r = time % 60;
+
+  if (r === 0) {
+    return `${q} ${plural(q, 'hour')}`;
+  } else if (q === 0) {
+    return `${r} ${plural(r, 'min')}`;
+  } else {
+    return `${q} ${plural(q, 'hour')} and ${r} ${plural(r, 'min')}`;
+  }
+}
+
 var tripDuration = document.getElementById('trip-duration');
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmVzcGlkZXJzIiwiYSI6ImNrN2JqZW43MjAyM3YzcWxjb2VkZG9qNmUifQ.iMQH53oEUdtY8nAbUaAl3w';
@@ -87,7 +108,12 @@ function getRoute(end) {
       var totalTripDuration = JSON.parse(tripDuration.dataset.duration);
     }
     total.value += Math.floor(data.duration / 60);
-    instructions.innerHTML = `<span class="duration">Total walking duration: ${total.value} mins 🚶‍♂️</span>`
+    instructions.innerHTML = `
+    <p class="stats-title">Trip Stats</p>
+    <p class="duration">Time at locations: ${duration(totalTripDuration)}</p>
+    <p class="duration">Walking duration: ${duration(total.value)}</p>
+    <p class="duration">Total trip duration: ${duration(totalTripDuration + total.value)}</p>
+    `
   };
   req.send();
 }

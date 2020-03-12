@@ -24,9 +24,15 @@
 }
 
 #instructions {
-  width: 60% !important;
-  height: 10%;
+  width: 35% !important;
+  height: 20%;
   box-shadow: 0 10px 10px grey;
   border-radius: 10px;
   text-align: center;
+  .stats-title {
+    font-weight: bold;
+  }
+  p {
+    margin: 0;
+  }
 }
