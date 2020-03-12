@@ -12,7 +12,7 @@
               <label class="btn btn-primary">
               ADD PHOTOS
               <span style="display:none;">
-              <%= f.file_field :image, required: true, multiple: true, name: 'picture' %>
+              <%= f.input :photo, as: :file, label: false%>
               </span>
               </label>
               </div>

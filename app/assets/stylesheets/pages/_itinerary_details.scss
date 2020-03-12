@@ -1,6 +1,7 @@
  .details-itinerary{
    margin: 0px;
   padding: 0px;
+
  }
 
 
@@ -8,14 +9,10 @@
   list-style: none;
   display: inline;
   margin: 5px;
+  color: white;
+
 }
 
-.btn-message{
-  width: 30%;
-  font-size: 12px;
-  position: relative;
-  float: right;
-}
 
 .itinerary-user-details{
   display:flex;
@@ -25,18 +22,50 @@
 }
 
 .trip-overview{
-    margin: 0px 5px 0px 5px;
+    width: 95%;
+    height: 250px;
+    margin: 0px auto;
     padding: 5px;
-    border-radius: 8px;
+    border-radius: 3px;
     background-color: white;
+    border-top: 3px solid $_medium_orange;
   h1 {
     font-size: 18px;
-    font-style: italic;
+    color: white;
+    padding: 8px 15px 1px 15px;
+    font-weight: bold;
 
   }
 
   h2{
     font-size: 16px;
     margin: 0px;
+    color: white;
+    font-weight: bold;
+
+    }
+
+  h3{
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+
   }
+
+  p{
+    padding-left: 15px;
+    font-size: 14px;
+    color: white;
+  }
+
 }
+
+.details-icon{
+  margin: auto;
+  position: relative;
+  top: 60px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  }
+
