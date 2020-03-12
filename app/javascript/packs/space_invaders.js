@@ -11,12 +11,14 @@ let frames = 0;
 let interval;
 let gameState = true;
 let win;
+const wagon = document.getElementById('wagon');
 
 function drawSquare(x, y, color) {
-  ctx.fillStyle = color;
-  ctx.strokeStyle = 'black';
-  ctx.fillRect(x, y, square, square);
-  ctx.strokeRect(x, y, square, square);
+  // ctx.fillStyle = color;
+  // ctx.strokeStyle = 'black';
+  // ctx.fillRect(x, y, square, square);
+  // ctx.strokeRect(x, y, square, square);
+  ctx.drawImage(wagon, x, y, square, square);
 }
 
 function clearBoard() {

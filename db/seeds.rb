@@ -163,7 +163,7 @@ abana = Itinerary.new({ name: 'Views and screws', description: "Really nice view
 abana.user = d
 abana.locations << [s_jorge, m_moniz, f_ladra]
 abana_photo = URI.open("https://i.insider.com/5d23720921a861344a2957ff?width=1100&format=jpeg&auto=webp")
-abana.photo.attach(io: beach_photo, filename: 'abana.jpg', content_type: 'image/jpg')
+abana.photo.attach(io: abana_photo, filename: 'abana.jpg', content_type: 'image/jpg')
 abana.save!
 abana.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
@@ -202,7 +202,7 @@ end
 abana = Itinerary.new({ name: 'Cultural interchange', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = d
 abana.locations << [s_jorge, m_moniz, f_ladra]
-abana_photo = URI.open("https://k6u8v6y8.stackpathcdn.com/blog/wp-content/uploads/2013/12/top-places-for-a-delightful-cultural-trip-in-india.png0")
+abana_photo = URI.open("https://k6u8v6y8.stackpathcdn.com/blog/wp-content/uploads/2013/12/top-places-for-a-delightful-cultural-trip-in-india.png")
 abana.photo.attach(io: abana_photo, filename: 'abana.jpg', content_type: 'image/jpg')
 abana.save!
 abana.itinerary_locations.each_with_index do |elem, ix|
@@ -222,7 +222,7 @@ end
 abana = Itinerary.new({ name: 'Mind explosion', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = m
 abana.locations << [s_jorge, m_moniz, f_ladra]
-abana_photo = URI.open("https://k6u8v6y8.stackpathcdn.com/blog/wp-content/uploads/2013/12/top-places-for-a-delightful-cultural-trip-in-india.png0")
+abana_photo = URI.open("https://www.lisbonlux.com/images/lisbon/praca-martim-moniz.jpg")
 abana.photo.attach(io: abana_photo, filename: 'abana.jpg', content_type: 'image/jpg')
 abana.save!
 abana.itinerary_locations.each_with_index do |elem, ix|
@@ -252,7 +252,7 @@ end
 beach = Itinerary.new({ name: 'Sand box', description: "Beach landscpaes and whatnot and good to shake them booties", duration: 570 })
 beach.user = g
 beach.locations << [boca_inferno, guincho, marina_cascais]
-beach_photo = URI.open("https://lh3.googleusercontent.com/proxy/mYdEeOF8be9n7BC91g_Bm-2LpuXPsa69jaFW31K2XSU4h9uEHsq2lpYOZWNvEPloz1pBC0AJkpIxn5LYn-aPVnXMgmoAFq2y9CwnydznyWUdc64lH3xH9L-fOPx2Ny1QiqdiT7Twy_uRE6vyq87tjGxTra8")
+beach_photo = URI.open("https://www.visitportugal.com/sites/default/files/styles/encontre_detalhe_poi_destaque/public/mediateca/LIS_Cascais-Cresmina-Guincho_660x371.jpg?itok=xEwKPAvg")
 beach.photo.attach(io: beach_photo, filename: 'beach.jpg', content_type: 'image/jpg')
 beach.save!
 beach.itinerary_locations.each_with_index do |elem, ix|
