@@ -46,29 +46,29 @@ marina_cascais = Location.new({ name: 'Marina de Cascais', address: 'Marina de C
 marina_cascais.tag_list.add("Marina")
 marina_cascais.save!
 
-praca_rossio = Location.new({ name: 'Praca Rossio', address: 'Praca Rossio', description: 'A place in the heart of Lisbon with nice restaurants and cultural attractions', duration: 60 })
-praca_rossio.tag_list.add("Cultural")
-praca_rossio.save!
+# praca_rossio = Location.new({ name: 'Praca Rossio', address: 'Praca Rossio', description: 'A place in the heart of Lisbon with nice restaurants and cultural attractions', duration: 60 })
+# praca_rossio.tag_list.add("Cultural")
+# praca_rossio.save!
 
-topo_bar_chiado = Location.new({ name: 'Topo Bar Chiado', address: 'Topo Bar Chiado', description: 'A nice panoramic restaurant in the heart of Lisbon with nice tapas and  wine list', duration: 60 })
-topo_bar_chiado.tag_list.add("Cultural")
-topo_bar_chiado.save!
+# topo_bar_chiado = Location.new({ name: 'Topo Bar Chiado', address: 'Topo Bar Chiado', description: 'A nice panoramic restaurant in the heart of Lisbon with nice tapas and  wine list', duration: 60 })
+# topo_bar_chiado.tag_list.add("Cultural")
+# topo_bar_chiado.save!
 
-rua_agusta = Location.new({ name: 'Rua Agusta', address: 'Rua Agusta', description: 'A beautiful street that ends up with Praca do Comercio', duration: 15 })
-rua_agusta.tag_list.add("Cultural")
-rua_agusta.save!
+# rua_agusta = Location.new({ name: 'Rua Agusta', address: 'Rua Agusta', description: 'A beautiful street that ends up with Praca do Comercio', duration: 15 })
+# rua_agusta.tag_list.add("Cultural")
+# rua_agusta.save!
 
-praca_do_comercio = Location.new({ name: 'Praça do Comércio', address: 'Praça do Comércio', description: 'The huge square in the heart of Lisbon near the Tagus river. Nice for enjoying sunsets.', duration: 25 })
-praca_do_comercio.tag_list.add("Cultural")
-praca_do_comercio.save!
+# praca_do_comercio = Location.new({ name: 'Praça do Comércio', address: 'Praça do Comércio', description: 'The huge square in the heart of Lisbon near the Tagus river. Nice for enjoying sunsets.', duration: 25 })
+# praca_do_comercio.tag_list.add("Cultural")
+# praca_do_comercio.save!
 
-se_de_lisboa = Location.new({ name: 'Sé de Lisboa', address: 'Sé de Lisboa', description: 'The oldest church in Lisbon', duration: 20 })
-se_de_lisboa.tag_list.add("Cultural")
-se_de_lisboa.save!
+# se_de_lisboa = Location.new({ name: 'Sé de Lisboa', address: 'Sé de Lisboa', description: 'The oldest church in Lisbon', duration: 20 })
+# se_de_lisboa.tag_list.add("Cultural")
+# se_de_lisboa.save!
 
-portas_do_sol = Location.new({ name: 'Portas do Sol', address: 'Portas do Sol', description: 'The restaurant where you can enjoy food and drinks with a view overlooking Alfama rooftops', duration: 60 })
-portas_do_sol.tag_list.add("Cultural")
-portas_do_sol.save!
+# portas_do_sol = Location.new({ name: 'Portas do Sol', address: 'Portas do Sol', description: 'The restaurant where you can enjoy food and drinks with a view overlooking Alfama rooftops', duration: 60 })
+# portas_do_sol.tag_list.add("Cultural")
+# portas_do_sol.save!
 
 
 puts 'creating a bunch of itineraries'
@@ -87,7 +87,6 @@ beach.save!
 beach.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
 end
-
 
 abana = Itinerary.new({ name: 'Lisbon views', description: "Really nice views with a foreign aroma of spices", duration: 300 })
 abana.user = d
@@ -289,3 +288,23 @@ lisbon_walk.itinerary_locations.each_with_index do |elem, ix|
 end
 
 puts "All done"
+
+z = "Best spots ever, I had a great time!"
+x = "A great option to spend any day"
+c = "Awsome!!!"
+h = "Loved the drinking!"
+b = "I had an awsome cultural experience"
+v = "Cant wait to go on it again."
+h = "One word.. A-M-A-Z-I-N-G"
+
+Itinerary.all.each do |it|
+  rand(2..4).times do
+    new_review = Review.new(
+      description: [z, x, c, h, b, v, m].sample,
+      rating: rand(3..5)
+    )
+    new_review.user = ([s, m, d, g] - [it.user]).sample
+    new_review.itinerary = it
+    new_review.save!
+  end
+end

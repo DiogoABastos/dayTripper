@@ -9,10 +9,19 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
-if (document.body.classList.contains('itineraries')) {
+
+const ItIndex = document.querySelector(".itineraries.index")
+const locationsShow = document.querySelector(".itineraries.show");
+const locationsLocShow = document.querySelector(".locations.show");
+
+
+// if (document.body.classList.contains('itineraries')) {
+//   initMapbox();
+// }
+
+if (ItIndex || locationsShow || locationsLocShow) {
   initMapbox();
 }
-
 
 initAutocomplete();
 
@@ -52,13 +61,13 @@ if (reviewButton) {
 const reviewForm = document.querySelector('.review-form');
 const theMap = document.querySelector('.the-map');
 const reviewCards = document.querySelector('.review-cards');
-const instructions = document.querySelector('#instructions');
+// const instructions = document.querySelector('#instructions');
 
 if (reviewButton && reviewForm && theMap && reviewCards) {
   reviewButton.addEventListener('click', (e) => {
     reviewForm.classList.toggle('review-form-active');
     theMap.classList.toggle('the-map-active');
-    instructions.classList.toggle('instructions-active');
+    // instructions.classList.toggle('instructions-active');
     reviewCards.classList.toggle('review-cards-active');
     if (reviewButton.innerHTML === 'Show map') {
       reviewButton.innerHTML = content;
@@ -98,7 +107,6 @@ const locationBtn = document.querySelector('.location-button');
 import { initSortable } from '../plugins/init_sortable'; // <-- add this
 
 
-const locationsShow = document.querySelector(".itineraries.show");
 
 if(locationsShow) {
 
@@ -141,7 +149,7 @@ if(locationsShow) {
 }
 
 
-const ItIndex = document.querySelector(".itineraries.index")
+
 
 if (ItIndex) {
   let firstItinerary = document.querySelector(".index-click-map")
