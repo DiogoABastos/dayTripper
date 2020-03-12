@@ -4,25 +4,24 @@
   <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active carousel-item-height">
+        <h1 style="color: rgba(1, 80, 89, 1); font-size:20px; font-weight:bold; text-align:center;"><%= @locations.first.name %></h1>
+        <h3 style="font-size: 16px; text-align:center;"> <%= @locations.first.description %></h3>
         <% if @locations.first.photos.attached? %>
-          <%= cl_image_tag @locations.first.photos.first.key, :height=> 0.60 , :width => 0.70, :crop=>"fill", class: "d-block w-100", alt: 'First Slide' %>
+          <%= cl_image_tag @locations.first.photos.first.key,  :crop=>"fill", class: "d-block w-100", alt: 'First Slide' %>
         <% else %>
-          <%= cl_image_tag "thzwKfbAd91nNz2xZx7sGt3p", :height=> 0.60 , :width => 0.70, :crop=>"fill", class: "d-block w-100", alt: 'First Slide' %>
+          <%= cl_image_tag "thzwKfbAd91nNz2xZx7sGt3p", :crop=>"fill", class: "d-block w-100", alt: 'First Slide' %>
         <% end %>
       </div>
-      <div class="car-description">
-        <%= @locations.first.description %>
-      </div>
+
       <% @locations.drop(1).each do |location| %>
         <div class="carousel-item carousel-item-height">
+         <h1 style="color: rgba(1, 80, 89, 1); font-size:20px; font-weight:bold; text-align:center;"><%= location.name %></h1>
+         <h3 style="font-size: 16px; text-align:center;"><%= location.description %> </h3>
           <% if location.photos.attached? %>
-            <%= cl_image_tag location.photos.first.key, :height=> 0.60 , :width => 0.70, :crop=>"fill", class: "d-block w-100" %>
+            <%= cl_image_tag location.photos.first.key,  :crop=>"fill", class: "d-block w-100" %>
           <% else %>
-            <%= cl_image_tag "thzwKfbAd91nNz2xZx7sGt3p", :height=> 0.60 , :width => 0.70, :crop=>"fill", class: "d-block w-100" %>
+            <%= cl_image_tag "thzwKfbAd91nNz2xZx7sGt3p", :crop=>"fill", class: "d-block w-100" %>
           <% end %>
-        </div>
-        <div class="car-description">
-          <%= location.description %>
         </div>
         <% end %>
       </div>
