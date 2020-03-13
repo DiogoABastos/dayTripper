@@ -23,7 +23,7 @@
 
 .trip-overview{
     width: 95%;
-    height: 250px;
+    height: 172px;
     margin: 0px auto;
     padding: 5px;
     border-radius: 3px;
@@ -32,8 +32,9 @@
   h1 {
     font-size: 18px;
     color: white;
-    padding: 8px 15px 1px 15px;
+    padding: 2px 15px 1px 15px;
     font-weight: bold;
+    margin-bottom:2px
 
   }
 
@@ -101,5 +102,6 @@
   color: $_db_lightblue;
 }
 .itinerary-desription{
-  padding-bottom: 60px;
+  padding-bottom: 17px;
+  margin: 0px;
 }
