@@ -26,8 +26,8 @@
   margin: 0px 15px 10px 15px;
 
   img{
-    height: 109px;
-    width: 109px;
+    min-height: 109px;
+    min-width: 109px;
     border-radius: 2px;
   }
 
@@ -91,7 +91,7 @@
   text-overflow: ellipsis;
   word-wrap: break-word;
   overflow: hidden;
-  max-height: 3em;
+  max-height: 2.55em;
   // line-height: normal;
 }
 
