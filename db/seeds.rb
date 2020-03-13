@@ -287,7 +287,7 @@ lisbon_walk.itinerary_locations.each_with_index do |elem, ix|
   elem.update(drag_order: ix)
 end
 
-puts "All done"
+puts "Creating some reviews"
 
 z = "Best spots ever, I had a great time!"
 x = "A great option to spend any day"
@@ -308,3 +308,25 @@ Itinerary.all.each do |it|
     new_review.save!
   end
 end
+
+puts "Creating THE Reviews!"
+
+Itinerary.last.reviews.destroy_all
+
+new_review = Review.new(
+      description: "I cant urge you enough to take this trip. it was the most amazing time exploring the city with my husband. highly recommend!!!!!",
+      rating: 5
+)
+new_review.user = m
+new_review.itinerary = Itinerary.last
+new_review.save!
+
+new_review = Review.new(
+      description: "If you do one thing in Lisbon take this trip. Its utterly amazing. Enjoy!!!!",
+      rating: 5
+)
+new_review.user = g
+new_review.itinerary = Itinerary.last
+new_review.save!
+
+puts "BOOM! All done!"
