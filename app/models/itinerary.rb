@@ -49,11 +49,6 @@ class Itinerary < ApplicationRecord
     new_itinerary.photo = self.photo.blob
     new_itinerary.save
 
-    new_itinerary.itinerary_locations.each_with_index do |elem, ix|
-      elem.update(drag_order: ix)
-    end
-
-
 
     locs = self.locations.map do |loc|
       loc_attr = loc.attributes
@@ -72,7 +67,9 @@ class Itinerary < ApplicationRecord
         end
       end
 
-      ItineraryLocation.create(location: new_location, itinerary: new_itinerary)
+      drag_order = itinerary_locations.find_by(location: loc).drag_order
+
+      ItineraryLocation.create(location: new_location, itinerary: new_itinerary, drag_order: drag_order)
     end
 
     new_itinerary
