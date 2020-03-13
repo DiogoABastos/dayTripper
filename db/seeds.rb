@@ -279,7 +279,7 @@ portas_do_sol.photos.attach(io: portas_do_sol_photo, filename: 'portas_do_sol.jp
 puts 'creating THE Itinerary'
 lisbon_walk = Itinerary.new({ name: 'Top Lisbon sites & Drinks :)', description: "The Best of Lisbon: Historical Views & Drink Stops", duration: 300 })
 lisbon_walk.user = g
-lisbon_walk.locations << [georges_pub, portas_do_sol, praca_rossio, topo_bar_chiado, rua_agusta, praca_do_comercio, se_de_lisboa]
+lisbon_walk.locations << [georges_pub, praca_rossio, topo_bar_chiado, rua_agusta, praca_do_comercio, se_de_lisboa, portas_do_sol]
 lisbon_walk_photo = URI.open("https://www.visitportugal.com/sites/default/files/styles/encontre_detalhe_poi_destaque/public/mediateca/N4.OTR1435D.jpg?itok=SCYgpQYi")
 lisbon_walk.photo.attach(io: lisbon_walk_photo, filename: 'lisbon_walk.jpg', content_type: 'image/jpg')
 lisbon_walk.save!
