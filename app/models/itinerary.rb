@@ -47,12 +47,13 @@ class Itinerary < ApplicationRecord
     new_itinerary.user = user
     new_itinerary.name = "**COPY OF " + new_itinerary.name + "**"
     new_itinerary.photo = self.photo.blob
+    new_itinerary.save
 
     new_itinerary.itinerary_locations.each_with_index do |elem, ix|
       elem.update(drag_order: ix)
     end
 
-    new_itinerary.save
+
 
     locs = self.locations.map do |loc|
       loc_attr = loc.attributes
