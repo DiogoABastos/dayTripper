@@ -17,7 +17,7 @@ User.delete_all
 puts 'creating two users'
 m = User.create!({ email: 'm@gmail.com', password: 123456, username: 'jgarcia' })
 s = User.create!({ email: 's@gmail.com', password: 123456, username: 'stevespiders' })
-d = User.create!({ email: 'd@gmail.com', password: 123456, username: 'megabebe' })
+d = User.create!({ email: 'd@gmail.com', password: 123456, username: 'Diego' })
 g = User.create!({ email: 'g@gmail.com', password: 123456, username: 'gz3000' })
 
 puts 'creating 6 locations'
